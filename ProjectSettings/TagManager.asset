@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - Wall
+  - Coin
+  - Water
+  - End
+  - Note
+  - WinNote
+  - LongNote
+  - Activator
+  - StarNote
+  - Obstacle
+  - Slow Down
+  - Auto
+  - Time
+  - Bullet
+  - Mutiplier
+  - Life
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Post Processing
+  - Wall
+  - Enemy
+  - Coin
+  - Platform
+  - Shadow
+  - Interactable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

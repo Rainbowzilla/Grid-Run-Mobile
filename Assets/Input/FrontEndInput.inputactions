@@ -1,0 +1,54 @@
+{
+    "name": "FrontEndInput",
+    "maps": [
+        {
+            "name": "FrontEnd",
+            "id": "c9b9115a-f2f4-481b-8cb4-778d172c1ee1",
+            "actions": [
+                {
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "f1cc52e0-b3ce-4a31-8623-51f6b11743cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateController",
+                    "type": "Value",
+                    "id": "a19deb59-9de8-4e94-a801-7d04ad244e22",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "699b37a7-6f43-4031-8743-31676329b534",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0b83fb4-d4a9-483e-9ead-1de7b8b17c18",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
