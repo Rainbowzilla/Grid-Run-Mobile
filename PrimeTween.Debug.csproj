@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6E4C3A90-DEA6-D19F-6ED8-58DE904E00E7}</ProjectGuid>
+    <ProjectGuid>{79AFD26A-6141-0964-EC63-DB9AA02A7929}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PrimeTween.Debug</AssemblyName>

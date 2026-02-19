@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EF27C0FA-2A13-2761-D131-FB9A8D686DE0}</ProjectGuid>
+    <ProjectGuid>{28C8A11E-46B8-3E04-3C6F-AE826B98CC3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,111 +56,111 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\GridRunArcadeModeGameManager.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\GridRunArcadeModeGameManager.cs" />
     <Compile Include="Assets\Scripts\FadingScript.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\CameraSmoothFollow.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Endless Mode Scripts\RandomSpawner.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\BulletBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\CameraLean.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\RockMeterUI.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\PlayerSkadaddle.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\CameraSmoothFollow.cs" />
+    <Compile Include="Assets\Scripts\Endless Mode Scripts\RandomSpawner.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\BulletBehaviour.cs" />
+    <Compile Include="Assets\Scripts\CameraLean.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\RockMeterUI.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\PlayerSkadaddle.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveableObjectID.cs" />
-    <Compile Include="Assets\Scripts\Arcade\SaveSystemTest.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerUI.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\MainMenuScript.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\AudioManagerForGridRun.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\FallToDeath.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\GetSceneName.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\SaveSystemTest.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerUI.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\MainMenuScript.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\AudioManagerForGridRun.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\FallToDeath.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\GetSceneName.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveObjectLibrary.cs" />
     <Compile Include="Assets\Input\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\Path.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\BallEnemy.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\TestingChracterController.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Interactables\Keypad.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\LongNote.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\GridController.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\DisplayTextName.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\Path.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\BallEnemy.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\TestingChracterController.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Interactables\Keypad.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\LongNote.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\GridController.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\DisplayTextName.cs" />
     <Compile Include="Assets\Scripts\FadeTransition.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\GridBikeBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\StarPowerUI.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Main Menu Scripts\BGGridScroll.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\SlowPlayerTrigger.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\EventOnlyInteractable.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\Note.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\StaticMove.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\BossAI.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Interactable.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\CameraShakeAlt.cs" />
+    <Compile Include="Assets\Scripts\GridBikeBehaviour.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\StarPowerUI.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Main Menu Scripts\BGGridScroll.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\SlowPlayerTrigger.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\EventOnlyInteractable.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\Note.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\StaticMove.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\BossAI.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Interactable.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\CameraShakeAlt.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveSystem.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\PowerUps.cs" />
-    <Compile Include="Assets\Scripts\Arcade\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\InteractionEvent.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Weapons\GunType.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\Collectible.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Weapons\PlayerGunSelector.cs" />
-    <Compile Include="Assets\Scripts\Arcade\PlayerData.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerMotor.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\MusicManager.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\States\BaseState.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\WaitForSong.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\ObstacleController.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\RunnerController.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\PowerUps.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\InteractionEvent.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\GunType.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\Collectible.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\PlayerGunSelector.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\States\BaseState.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\WaitForSong.cs" />
+    <Compile Include="Assets\Scripts\ObstacleController.cs" />
+    <Compile Include="Assets\Scripts\RunnerController.cs" />
     <Compile Include="Assets\Input\FrontEndInput.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\States\PatrolState.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\ObjectSwitcher.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\TimeToDestroy.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\RockMeter.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\States\AttackState.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\ScoreUIColorChanger.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\DoorBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\MovingBackAndFourth.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\MenuBassHero.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerAction.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\BottomScript.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Weapons\ShootConfigurationScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\MovablePillar.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\CamSwitch.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Enemy\States\ChaseState.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Arcade Mode Scripts\TimeCountdown.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Weapons\GunScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\FrontEndInputManager.cs" />
-    <Compile Include="Assets\Scripts\Arcade\SceneManage.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\TemporaryLoadButton.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\DifficultyMenu.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\States\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\ObjectSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\TimeToDestroy.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\RockMeter.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\States\AttackState.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerLook.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\ScoreUIColorChanger.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\DoorBehaviour.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\MovingBackAndFourth.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\MenuBassHero.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerAction.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\BottomScript.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\ShootConfigurationScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\MovablePillar.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\CamSwitch.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\ReallyQuickMenuScriptForPlayTestOnly.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\States\ChaseState.cs" />
+    <Compile Include="Assets\Scripts\Arcade Mode Scripts\TimeCountdown.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\GunScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\FrontEndInputManager.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\SceneManage.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\TemporaryLoadButton.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\DifficultyMenu.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\GameManagerBassHero.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Main Menu Scripts\GridRunMenu.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\Activator.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\CameraScript.cs" />
-    <Compile Include="Assets\Scripts\Arcade\MovableObject.cs" />
-    <Compile Include="Assets\Scripts\Skadaddle Scripts\TriggerManager.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\GameManagerBassHero.cs" />
+    <Compile Include="Assets\Scripts\Main Menu Scripts\GridRunMenu.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\Activator.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\MovableObject.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\TriggerManager.cs" />
     <Compile Include="Assets\Scripts\MoveTranslate.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Player\PlayerInteract.cs" />
-    <Compile Include="Assets\Scripts\Arcade\AppearOnAndOff.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\StaticVariableController.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\CameraLook.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerInteract.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\AppearOnAndOff.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\StaticVariableController.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\CameraLook.cs" />
     <Compile Include="Assets\Import\Camera Filter\CameraFilterPack_TV_ARCADE.cs" />
-    <Compile Include="Assets\Scripts\Arcade\PauseMenuArcade.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\PauseMenuArcade.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\InputDeviceManager.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Endless Mode Scripts\TimeScore.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\Weapons\TrailConfigScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\Arcade\SaveLoadPosition.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\PauseGame.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\CameraShake.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\ScoreUI.cs" />
-    <Compile Include="Assets\Scripts\Arcade\Rotate.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\TopScript.cs" />
-    <Compile Include="Assets\Scripts\Bass Hero\Test Code\StarNoteID.cs" />
-    <Compile Include="Assets\Scripts\Grid Run\Main Menu Scripts\SpawnCubesForMainMenu.cs" />
-    <Compile Include="Assets\Scripts\You Must Die\ReallyQuickMenuScriptForPlayTestOnly.cs" />
+    <Compile Include="Assets\Scripts\Endless Mode Scripts\TimeScore.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\TrailConfigScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\SaveLoadPosition.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\PauseGame.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\ScoreUI.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Arcade\Rotate.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\TopScript.cs" />
+    <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\StarNoteID.cs" />
+    <Compile Include="Assets\Scripts\Main Menu Scripts\SpawnCubesForMainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -965,15 +965,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PrimeTween.Debug.csproj">
-      <Project>{6E4C3A90-DEA6-D19F-6ED8-58DE904E00E7}</Project>
+      <Project>{79AFD26A-6141-0964-EC63-DB9AA02A7929}</Project>
       <Name>PrimeTween.Debug</Name>
     </ProjectReference>
     <ProjectReference Include="PrimeTween.Installer.csproj">
-      <Project>{CDB06667-6576-AECE-B3A4-F576B3270E5D}</Project>
+      <Project>{8EAB772C-860D-E0D0-C01D-AB306A6912DC}</Project>
       <Name>PrimeTween.Installer</Name>
     </ProjectReference>
     <ProjectReference Include="PrimeTween.Demo.csproj">
-      <Project>{AF3F7232-4A36-F586-AFFB-C81148BE4F15}</Project>
+      <Project>{EE70228E-0041-7246-D169-E1FDA6986FB9}</Project>
       <Name>PrimeTween.Demo</Name>
     </ProjectReference>
   </ItemGroup>

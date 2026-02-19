@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CDB06667-6576-AECE-B3A4-F576B3270E5D}</ProjectGuid>
+    <ProjectGuid>{8EAB772C-860D-E0D0-C01D-AB306A6912DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PrimeTween.Installer</AssemblyName>
