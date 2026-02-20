@@ -19,9 +19,9 @@ public class MovablePillar : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(force);
-        if (rb.velocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
 

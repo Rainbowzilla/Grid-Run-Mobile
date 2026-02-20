@@ -27,13 +27,13 @@ public class ObstacleController : MonoBehaviour
         {
             rb.AddForce(speed);
 
-            if (rb.velocity.magnitude > maxSpeed)
+            if (rb.linearVelocity.magnitude > maxSpeed)
             {
-                rb.velocity = rb.velocity.normalized * maxSpeed;
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
         }
         else if (RunnerController.isPlayerDead)
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
 
         if (health <= 0)
         {

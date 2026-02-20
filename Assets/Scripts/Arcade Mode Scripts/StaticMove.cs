@@ -24,11 +24,11 @@ public class StaticMove : MonoBehaviour
         {
             rb.AddForce(force);
 
-            if (rb.velocity.magnitude > maxSpeed)
+            if (rb.linearVelocity.magnitude > maxSpeed)
             {
-                rb.velocity = rb.velocity.normalized * maxSpeed;
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
         }
-        else rb.velocity = Vector3.zero;
+        else rb.linearVelocity = Vector3.zero;
     }
 }

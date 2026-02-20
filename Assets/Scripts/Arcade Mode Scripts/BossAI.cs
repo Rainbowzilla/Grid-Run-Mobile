@@ -57,9 +57,9 @@ public class BossAI : MonoBehaviour
         {
             rb.AddForce(speed);
 
-            if (rb.velocity.magnitude > maxSpeed)
+            if (rb.linearVelocity.magnitude > maxSpeed)
             {
-                rb.velocity = rb.velocity.normalized * maxSpeed;
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
 
             if (health <= 0)

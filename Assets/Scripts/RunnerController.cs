@@ -18,7 +18,7 @@ public class RunnerController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3 (moveHorizontal * (speed * Time.timeScale), 0, 0);
+        rb.linearVelocity = new Vector3 (moveHorizontal * (speed * Time.timeScale), 0, 0);
     }
 
     void OnTriggerEnter(Collider other)

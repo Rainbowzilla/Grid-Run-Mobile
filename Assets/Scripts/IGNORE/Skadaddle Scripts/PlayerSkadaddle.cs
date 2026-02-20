@@ -156,7 +156,7 @@ public class PlayerSkadaddle : MonoBehaviour
             jumpSound.Play();
             m_Animator.SetBool("IsGrounded", false);
         }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0)
         {
             rb.AddForce(new Vector3(0, gravity, 0), ForceMode.Impulse);
         }

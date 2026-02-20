@@ -28,9 +28,9 @@ public class BallEnemy : MonoBehaviour
     {
         rb.AddForce(force);
         //print("Speed Up");
-        if (rb.velocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
 

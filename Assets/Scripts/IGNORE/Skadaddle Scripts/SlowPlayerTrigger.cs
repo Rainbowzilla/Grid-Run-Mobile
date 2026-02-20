@@ -22,10 +22,10 @@ public class SlowPlayerTrigger : MonoBehaviour
 
     void SlowPlayerDown()
     {
-        player.GetComponent<Rigidbody>().drag = 1;
+        player.GetComponent<Rigidbody>().linearDamping = 1;
     }
     void NormalizePlayerSpeed()
     {
-        player.GetComponent<Rigidbody>().drag = 0;
+        player.GetComponent<Rigidbody>().linearDamping = 0;
     }
 }
