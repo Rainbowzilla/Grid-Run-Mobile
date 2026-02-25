@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\IMPORTANT\InputDeviceManager.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\DoorBehaviour.cs" />
     <Compile Include="Assets\Scripts\FadeTransition.cs" />
+    <Compile Include="Assets\Scripts\GoFast.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveObjectLibrary.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\TrailConfigScriptableObject.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\PauseMenuArcade.cs" />
