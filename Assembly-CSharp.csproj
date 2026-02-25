@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\IGNORE\Arcade\SceneManage.cs" />
     <Compile Include="Assets\Scripts\Arcade Mode Scripts\BulletBehaviour.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\BikeSelectManager.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\SlowPlayerTrigger.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\GameManagerBassHero.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\AppearOnAndOff.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\PauseGame.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\MovableObject.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveableObjectID.cs" />
+    <Compile Include="Assets\Scripts\BikeDataClass.cs" />
     <Compile Include="Assets\Scripts\Arcade Mode Scripts\AudioManagerForGridRun.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerAction.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\DisplayTextName.cs" />
@@ -136,7 +138,6 @@
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\PlayerSkadaddle.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Weapons\ShootConfigurationScriptableObject.cs" />
     <Compile Include="Assets\Scripts\IMPORTANT\SaveSystem.cs" />
-    <Compile Include="Assets\Scripts\CharacterSelectManager.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\SaveLoadPosition.cs" />
     <Compile Include="Assets\Scripts\GridController.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\Activator.cs" />
