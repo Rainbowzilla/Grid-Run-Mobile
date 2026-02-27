@@ -11,12 +11,27 @@ public class PowerUps : MonoBehaviour
     public float TimeDelta = 0.02f;
 
     public float slowMoDuration;
-    float countSlowMoTimer, countAutoFireTimer;
+    float countSlowMoTimer, countAutoFireTimer, countGhostTimer, countAPRoundsTimer;
     [HideInInspector] public bool isSlowMotionInEffect = false;
 
     [Header("Add Time Settings")]
-
     public float addExtraTime = 3f;
+
+    [Header("Ghost Settings")]
+    public float ghostDuration = 10f;
+    [HideInInspector] public bool isGhostActivated = false;
+    public Color originalColor;
+    public Color ghostColor;
+    public float transistionFadeDuration = 3f;
+    [HideInInspector] public float elapsedLerpTimer = 0f;
+
+    [Header("AP Rounds Setting")]
+    public float AP_Rounds_Duration = 5f;
+    public Color apRoundColor;
+    public Color bulletColor;
+    private Gradient apRoundTrail;
+    private Gradient originalBulletTrail;
+    public static bool isAPRoundsActive = false;
 
     [Header("Gun Settings")]
 
@@ -43,6 +58,7 @@ public class PowerUps : MonoBehaviour
     public Transform bulletSpawnLeft, bulletSpawnRight;
     public ParticleSystem sparksLeft, sparksRight;
     public GameObject player;
+    public Material bodyMaterial;
     public Image fullAuto, slowMo;
     public AudioSource laserShot;
     public AudioSource fullAutoPowerUpSound;
@@ -50,19 +66,53 @@ public class PowerUps : MonoBehaviour
     public AudioSource doublePointRise;
     public AudioSource addTimeDing;
 
+
     void Start()
     {
         countSlowMoTimer = slowMoDuration;
         countAutoFireTimer = automaticFireDuration;
+        countGhostTimer = ghostDuration;
+        countAPRoundsTimer = AP_Rounds_Duration;
         _fireModeID = 1;
         slowMo.enabled = false;
         fullAuto.enabled = false;
+        isGhostActivated = false;
+        bodyMaterial.color = originalColor;
+
+        apRoundTrail = new Gradient();
+        originalBulletTrail = new Gradient();
+
+        GradientColorKey[] colorKeys = new GradientColorKey[3];
+        colorKeys[0] = new GradientColorKey(apRoundColor, 0.0f);
+        colorKeys[1] = new GradientColorKey(apRoundColor, 0.6f);
+        colorKeys[2] = new GradientColorKey(Color.white, 1.0f);
+
+        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
+        alphaKeys[0] = new GradientAlphaKey(1.0f, 0.0f);
+        alphaKeys[1] = new GradientAlphaKey(1.0f, 0.0f);
+
+        apRoundTrail.SetKeys(colorKeys, alphaKeys);
+
+        GradientColorKey[] originalColorKeys = new GradientColorKey[3];
+        originalColorKeys[0] = new GradientColorKey(originalColor, 0.0f);
+        originalColorKeys[1] = new GradientColorKey(originalColor, 0.6f);
+        originalColorKeys[2] = new GradientColorKey(Color.white, 1.0f);
+
+        GradientAlphaKey[] originalAlphaKeys = new GradientAlphaKey[2];
+        originalAlphaKeys[0] = new GradientAlphaKey(1.0f, 0.0f);
+        originalAlphaKeys[1] = new GradientAlphaKey(1.0f, 0.0f);
+
+        originalBulletTrail.SetKeys(originalColorKeys, originalAlphaKeys);
+
+        bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = originalBulletTrail;
     }
 
     void Update()
     {
         DoSlowMotion();
         SwitchFireMode();
+        DoGhostPowerUp();
+        ActivateAPRounds();
     }
 
     #region Monobehaviour API
@@ -240,6 +290,46 @@ public class PowerUps : MonoBehaviour
 
         Destroy(bulletLeft);
         Destroy(bulletRight);
+    }
+
+    public void DoGhostPowerUp()
+    {
+        if (isGhostActivated)
+        {
+            countGhostTimer -= Time.deltaTime; //Counts for how long the duration will last
+            elapsedLerpTimer += Time.deltaTime;
+
+            float t = Mathf.Clamp01(elapsedLerpTimer / transistionFadeDuration); //Transistion Fade Duration is based on how long the fade will take instead of fade speed
+
+            bodyMaterial.color = Color.Lerp(originalColor, ghostColor, t);
+
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); //This one line makes the player invincible by ignoring collision
+
+            if (countGhostTimer <= 0)
+            {
+                isGhostActivated = false;
+                countGhostTimer = ghostDuration;
+                bodyMaterial.color = originalColor;
+                Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+            }
+        }
+    }
+
+    public void ActivateAPRounds()
+    {
+        if (isAPRoundsActive)
+        {
+            countAPRoundsTimer -= Time.deltaTime;
+
+            bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = apRoundTrail;
+            Debug.Log("Hey the AP rounds is being called");
+
+            if (countAPRoundsTimer <= 0)
+            {
+                isAPRoundsActive = false;
+                bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = originalBulletTrail;
+            }
+        }
     }
 
     #endregion

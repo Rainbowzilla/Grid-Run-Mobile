@@ -56,6 +56,19 @@ public class RunnerController : MonoBehaviour
             Power_Ups.doublePointRise.Play();
             Destroy(other.gameObject);
         }
+        if (other.gameObject.tag == "Ghost")
+        {
+            Power_Ups.isGhostActivated = true;
+            Power_Ups.elapsedLerpTimer = 0f;
+            Power_Ups.DoGhostPowerUp();
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "AP Rounds")
+        {
+            PowerUps.isAPRoundsActive = true;
+            Power_Ups.ActivateAPRounds();
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator DestroyAfterTime(float x)
