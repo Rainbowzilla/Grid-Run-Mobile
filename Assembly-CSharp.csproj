@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\Arcade Mode Scripts\AudioManagerForGridRun.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerAction.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\DisplayTextName.cs" />
+    <Compile Include="Assets\Scripts\Main Menu Scripts\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerInteract.cs" />
     <Compile Include="Assets\Scripts\GridBikeBehaviour.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Player\PlayerLook.cs" />
