@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
-  m_Name: Tron Bike
+  m_Name: Tanuki Mech
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 5304053678235708227, guid: 79e34c35a5b920840ba638efae8b7d73, type: 3}
-  bikeIndex: 1
-  bikeName: LightCycle
+  bikePrefab: {fileID: 919132149155446097, guid: bf3fcaf30dc24aa4da68c158db57913f, type: 3}
+  bikeIndex: 2
+  bikeName: Tanuki Mech
