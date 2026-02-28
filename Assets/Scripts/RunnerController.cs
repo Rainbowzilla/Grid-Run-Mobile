@@ -10,6 +10,10 @@ public class RunnerController : MonoBehaviour
     private Rigidbody rb;
     public PowerUps Power_Ups;
 
+    public JoystickControls JoystickControls;
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,7 +21,12 @@ public class RunnerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal;
+        if (JoystickControls.joystickVector.y != 0)
+        {
+            rb.angularVelocity = new Vector2(JoystickControls.joystickVector.x * speed, JoystickControls.joystickVector.y * speed);
+        }
+
+            float moveHorizontal;
 
         if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile)
         {
