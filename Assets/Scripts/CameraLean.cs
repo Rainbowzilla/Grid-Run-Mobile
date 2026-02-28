@@ -11,8 +11,7 @@ public class CameraLean : MonoBehaviour
     {
         if (MobileInputHandler.Instance.isForMobile)
         {
-            bikeAnim.enabled = false;
-            //cameraAnim.enabled = false;
+            StartCoroutine(DisableBikeAnimation());
         }
     }
 
@@ -68,5 +67,11 @@ public class CameraLean : MonoBehaviour
                 bikeAnim.SetTrigger("idle");
             }
         }
+    }
+
+    private IEnumerator DisableBikeAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        bikeAnim.enabled = false;
     }
 }
