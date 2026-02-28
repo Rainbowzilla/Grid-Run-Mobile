@@ -7,6 +7,15 @@ public class CameraLean : MonoBehaviour
     public Animator cameraAnim, bikeAnim;
     public bool animState;
 
+    private void Start()
+    {
+        if (MobileInputHandler.Instance.isForMobile)
+        {
+            bikeAnim.enabled = false;
+            //cameraAnim.enabled = false;
+        }
+    }
+
     void Update()
     {
         if (!MobileInputHandler.Instance.isForMobile)

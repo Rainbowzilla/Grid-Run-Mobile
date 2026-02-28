@@ -59,9 +59,14 @@ public class MobileInputHandler : MonoBehaviour
 
     void HandleBikeLean()
     {
-        debugText.SetText("X Veloctiy: " + xVelocity);
+
+        float targetZ = -xVelocity * tiltMultiplier;           // or input-based
+        targetZ = Mathf.Clamp(targetZ, -45f, 45f);             // prevent over-lean
+
+        // Option A – clean & safe
+        bikeParent.localRotation = Quaternion.Euler(targetZ, targetZ, targetZ);
 
         //bikeParent.eulerAngles = new Vector3(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
-        bikeParent.Rotate(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
+        //bikeParent.Rotate(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
     }
 }
