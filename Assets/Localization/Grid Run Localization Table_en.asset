@@ -98,6 +98,50 @@ MonoBehaviour:
     m_Localized: Shoot
     m_Metadata:
       m_Items: []
+  - m_Id: 2540430581760
+    m_Localized: Enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4519810719744
+    m_Localized: Power Ups
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578887491584
+    m_Localized: Full Auto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4634508156928
+    m_Localized: Slow Mo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4679181688832
+    m_Localized: Double Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4845666197504
+    m_Localized: Sec
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881238089728
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4918881968128
+    m_Localized: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4954978148352
+    m_Localized: Paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5006425481216
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5060502642688
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

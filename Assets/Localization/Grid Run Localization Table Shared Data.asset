@@ -96,7 +96,47 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2540430581760
-    m_Key: New Entry
+    m_Key: enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4519810719744
+    m_Key: items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578887491584
+    m_Key: full-auto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4634508156928
+    m_Key: slowmo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4679181688832
+    m_Key: doublepts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4845666197504
+    m_Key: seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881238089728
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4918881968128
+    m_Key: score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4954978148352
+    m_Key: stop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5006425481216
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5060502642688
+    m_Key: return
     m_Metadata:
       m_Items: []
   m_Metadata:
