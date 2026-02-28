@@ -439,8 +439,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6054885537926294958, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054885537926294958, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054885537926294958, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266190676630659809, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999827643210798207, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7999827643210798207, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b39146d00ab8144da0c157a8435e959, type: 3}
