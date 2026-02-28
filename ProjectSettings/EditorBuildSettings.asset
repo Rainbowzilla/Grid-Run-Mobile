@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Mobile Input Tilt Demo.unity
+    guid: ee29a88f650070d45ab890c58da1e2ed
   - enabled: 1
     path: Assets/Scenes/Grid Run/Grid Run Main Menu 1.unity
     guid: fada564136474824280208d7f34e99fa
@@ -15,3 +18,4 @@ EditorBuildSettings:
     path: Assets/Scenes/Grid Run/Grid Run Arcade Mode.unity
     guid: 82a32633f9f921c458e09cd3ea0699b3
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

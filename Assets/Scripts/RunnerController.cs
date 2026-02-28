@@ -10,6 +10,10 @@ public class RunnerController : MonoBehaviour
     private Rigidbody rb;
     public PowerUps Power_Ups;
 
+    public JoystickControls JoystickControls;
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,8 +21,23 @@ public class RunnerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3 (moveHorizontal * (speed * Time.timeScale), 0, 0);
+        if (JoystickControls.joystickVector.y != 0)
+        {
+            rb.angularVelocity = new Vector2(JoystickControls.joystickVector.x * speed, JoystickControls.joystickVector.y * speed);
+        }
+
+            float moveHorizontal;
+
+        if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile)
+        {
+            moveHorizontal = MobileInputHandler.Instance.xVelocity;
+        }
+        else
+        { 
+            moveHorizontal = Input.GetAxis("Horizontal");
+        }
+
+        rb.linearVelocity = new Vector3(moveHorizontal * (speed * Time.timeScale), 0, 0);
     }
 
     void OnTriggerEnter(Collider other)
