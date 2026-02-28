@@ -61,10 +61,13 @@ public class PowerUps : MonoBehaviour
     public Material bodyMaterial;
     public Image fullAuto, slowMo, ghost, apRounds;
     public AudioSource laserShot;
+    public AudioSource laserShotHigherPitch;
     public AudioSource fullAutoPowerUpSound;
     public AudioSource slowDownSwoosh;
     public AudioSource doublePointRise;
     public AudioSource addTimeDing;
+    public AudioSource ghostWhoosh;
+    public AudioSource apRoundsClangSound;
 
 
     void Start()
@@ -133,12 +136,14 @@ public class PowerUps : MonoBehaviour
             slowMo.enabled = true;
 
             laserShot.pitch = 0.75f;
+            laserShotHigherPitch.pitch = 0.75f;
 
             if (countSlowMoTimer <= 0)
             {
                 isSlowMotionInEffect = false;
                 slowDownSwoosh.Stop();
                 laserShot.pitch = 1;
+                laserShotHigherPitch.pitch = 1;
                 countSlowMoTimer = slowMoDuration;
             }
             //Debug.Log(countTimer);
@@ -192,7 +197,10 @@ public class PowerUps : MonoBehaviour
         {
             sparksLeft.Play();
             sparksRight.Play();
-            laserShot.Play();
+            if (isAPRoundsActive)
+                laserShotHigherPitch.Play();
+            else
+                laserShot.Play();
 
             GameObject bulletLeft = Instantiate(bulletPrefabLeft);
             GameObject bulletRight = Instantiate(bulletPrefabRight);
@@ -267,7 +275,11 @@ public class PowerUps : MonoBehaviour
 
                 sparksLeft.Play();
                 sparksRight.Play();
-                laserShot.Play();
+
+                if (isAPRoundsActive)
+                    laserShotHigherPitch.Play();
+                else
+                    laserShot.Play();
 
                 TimeBeforeShooting = 1 / fireRate;
             }
@@ -328,7 +340,7 @@ public class PowerUps : MonoBehaviour
             countAPRoundsTimer -= Time.deltaTime;
 
             bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = apRoundTrail;
-            //Debug.Log("Hey the AP rounds is being called");
+
             apRounds.enabled = true;
 
             if (countAPRoundsTimer <= 0)

@@ -62,12 +62,14 @@ public class RunnerController : MonoBehaviour
             Power_Ups.isGhostActivated = true;
             Power_Ups.elapsedLerpTimer = 0f;
             Power_Ups.DoGhostPowerUp();
+            Power_Ups.ghostWhoosh.Play();
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "AP Rounds")
         {
             PowerUps.isAPRoundsActive = true;
             Power_Ups.ActivateAPRounds();
+            Power_Ups.apRoundsClangSound.Play();
             Destroy(other.gameObject);
         }
     }
