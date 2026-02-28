@@ -59,7 +59,7 @@ public class PowerUps : MonoBehaviour
     public ParticleSystem sparksLeft, sparksRight;
     public GameObject player;
     public Material bodyMaterial;
-    public Image fullAuto, slowMo;
+    public Image fullAuto, slowMo, ghost, apRounds;
     public AudioSource laserShot;
     public AudioSource fullAutoPowerUpSound;
     public AudioSource slowDownSwoosh;
@@ -76,6 +76,8 @@ public class PowerUps : MonoBehaviour
         _fireModeID = 1;
         slowMo.enabled = false;
         fullAuto.enabled = false;
+        ghost.enabled = false;
+        apRounds.enabled = false;
         isGhostActivated = false;
         bodyMaterial.color = originalColor;
 
@@ -305,6 +307,8 @@ public class PowerUps : MonoBehaviour
 
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); //This one line makes the player invincible by ignoring collision
 
+            ghost.enabled = true;
+
             if (countGhostTimer <= 0)
             {
                 isGhostActivated = false;
@@ -313,6 +317,8 @@ public class PowerUps : MonoBehaviour
                 Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
             }
         }
+        else
+            ghost.enabled = false;
     }
 
     public void ActivateAPRounds()
@@ -322,14 +328,18 @@ public class PowerUps : MonoBehaviour
             countAPRoundsTimer -= Time.deltaTime;
 
             bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = apRoundTrail;
-            Debug.Log("Hey the AP rounds is being called");
+            //Debug.Log("Hey the AP rounds is being called");
+            apRounds.enabled = true;
 
             if (countAPRoundsTimer <= 0)
             {
-                isAPRoundsActive = false;
+                countAPRoundsTimer = AP_Rounds_Duration;
                 bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = originalBulletTrail;
+                isAPRoundsActive = false;
             }
         }
+        else
+            apRounds.enabled = false;
     }
 
     #endregion

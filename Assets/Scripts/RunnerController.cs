@@ -19,6 +19,7 @@ public class RunnerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector3 (moveHorizontal * (speed * Time.timeScale), 0, 0);
+            //Debug.Log("Is AP Rounds Active = " + PowerUps.isAPRoundsActive);
     }
 
     void OnTriggerEnter(Collider other)
@@ -27,7 +28,7 @@ public class RunnerController : MonoBehaviour
         {
             isPlayerDead = true;
             gameObject.SetActive(false);
-            Debug.Log("The Runner has died");
+            //Debug.Log("The Runner has died");
             explosion.Play();
         }
         if (other.gameObject.tag == "Slow Down")
@@ -35,7 +36,7 @@ public class RunnerController : MonoBehaviour
             Power_Ups.isSlowMotionInEffect = true;
             Power_Ups.slowDownSwoosh.Play();
             Destroy(other.gameObject);
-            Debug.Log("Is Slow Motion in effect = " + Power_Ups.isSlowMotionInEffect);
+            //Debug.Log("Is Slow Motion in effect = " + Power_Ups.isSlowMotionInEffect);
         }
         if (other.gameObject.tag == "Auto")
         {
@@ -63,7 +64,7 @@ public class RunnerController : MonoBehaviour
             Power_Ups.DoGhostPowerUp();
             Destroy(other.gameObject);
         }
-        if(other.gameObject.tag == "AP Rounds")
+        if (other.gameObject.tag == "AP Rounds")
         {
             PowerUps.isAPRoundsActive = true;
             Power_Ups.ActivateAPRounds();
