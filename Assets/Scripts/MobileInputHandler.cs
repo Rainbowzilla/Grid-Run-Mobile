@@ -16,7 +16,12 @@ public class MobileInputHandler : MonoBehaviour
 
     public bool isForMobile;
 
-    public float minXForCameraTilt;
+    //public float minXForCameraTilt;
+
+    public Transform bikeParent;
+    public float tiltMultiplier;
+
+    public TextMeshProUGUI debugText;
 
     private void Awake()
     {
@@ -43,10 +48,20 @@ public class MobileInputHandler : MonoBehaviour
         if (xVelocity > maxXVelocity)
         {
             xVelocity = maxXVelocity;
-        }
+        } 
         else if (xVelocity < -maxXVelocity)
         {
             xVelocity = -maxXVelocity;
         }
+
+        HandleBikeLean();
+    }
+
+    void HandleBikeLean()
+    {
+        debugText.SetText("X Veloctiy: " + xVelocity);
+
+        //bikeParent.eulerAngles = new Vector3(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
+        bikeParent.Rotate(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
     }
 }
