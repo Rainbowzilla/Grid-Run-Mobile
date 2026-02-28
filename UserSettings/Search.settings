@@ -107,6 +107,9 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"st: volum"
+	"st: ghost"
+	"st: store"
 	"st: shake-"
 	"st:"
 	"st: options"

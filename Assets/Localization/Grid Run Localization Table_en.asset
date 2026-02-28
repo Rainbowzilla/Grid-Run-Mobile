@@ -142,6 +142,46 @@ MonoBehaviour:
     m_Localized: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 14688187736064
+    m_Localized: Store
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14719187836928
+    m_Localized: Unlock!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14740759142400
+    m_Localized: Ghost Rider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14778717593600
+    m_Localized: Akira Bike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14806664241152
+    m_Localized: Tanuki Mech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14840357085184
+    m_Localized: Cyclizar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14888084070400
+    m_Localized: Shadow Bike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914524962816
+    m_Localized: 'Arcee '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15074747375616
+    m_Localized: Grid Bike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15100559122432
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
