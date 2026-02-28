@@ -68,9 +68,9 @@ public class CameraLean : MonoBehaviour
 
     void HandleMobileInput()
     {
-        if (animState)
+        /*if (animState)
         {
-            if (MobileInputHandler.Instance.xVelocity < MobileInputHandler.Instance.minXForCameraTilt)
+            if (MobileInputHandler.Instance.xVelocity < -MobileInputHandler.Instance.minXForCameraTilt)
             {
                 cameraAnim.ResetTrigger("idle");
                 cameraAnim.ResetTrigger("right");
@@ -91,24 +91,24 @@ public class CameraLean : MonoBehaviour
         }
         if (!animState)
         {
-            if (MobileInputHandler.Instance.xVelocity < MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                bikeAnim.ResetTrigger("idle");
-                bikeAnim.ResetTrigger("right");
-                bikeAnim.SetTrigger("left");
-            }
-            else if (MobileInputHandler.Instance.xVelocity > MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                bikeAnim.ResetTrigger("idle");
-                bikeAnim.ResetTrigger("left");
-                bikeAnim.SetTrigger("right");
-            }
-            else
-            {
-                bikeAnim.ResetTrigger("right");
-                bikeAnim.ResetTrigger("left");
-                bikeAnim.SetTrigger("idle");
-            }
+        }*/
+        if (MobileInputHandler.Instance.xVelocity < -MobileInputHandler.Instance.minXForCameraTilt)
+        {
+            bikeAnim.ResetTrigger("idle");
+            bikeAnim.ResetTrigger("right");
+            bikeAnim.SetTrigger("left");
+        }
+        else if (MobileInputHandler.Instance.xVelocity > MobileInputHandler.Instance.minXForCameraTilt)
+        {
+            bikeAnim.ResetTrigger("idle");
+            bikeAnim.ResetTrigger("left");
+            bikeAnim.SetTrigger("right");
+        }
+        else
+        {
+            bikeAnim.ResetTrigger("right");
+            bikeAnim.ResetTrigger("left");
+            bikeAnim.SetTrigger("idle");
         }
     }
 }
