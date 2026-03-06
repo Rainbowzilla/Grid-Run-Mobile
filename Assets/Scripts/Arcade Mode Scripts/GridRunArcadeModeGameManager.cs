@@ -96,7 +96,7 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Is Player Dead = " + RunnerController.isPlayerDead);
+        //Debug.Log("Is Player Dead = " + RunnerController.isPlayerDead);
         if (GridController.didGridCollide == true)
         {
             SpawnNewGrid();
@@ -177,7 +177,7 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
 
         if (_countTimerForPowerUps <= 0)
         {
-            int prefabIndex = Random.Range(0, 4);
+            int prefabIndex = Random.Range(0, powerUpArray.Length);
             Instantiate(powerUpArray[prefabIndex], new Vector3(Random.Range(-14, 14), 1, Random.Range(175, 150)), Quaternion.identity);
             _countTimerForPowerUps = spawnRateForPowerUps;
         }

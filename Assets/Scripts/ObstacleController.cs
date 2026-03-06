@@ -48,10 +48,13 @@ public class ObstacleController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         if (other.gameObject.tag == "Bullet")
         {
             other.gameObject.GetComponent<BulletBehaviour>().AddScore(GridRunArcadeModeGameManager.Points_Per_Hit);
-            Destroy(other.gameObject);
+            
+            if (!PowerUps.isAPRoundsActive)
+                Destroy(other.gameObject);
             health--;
         }
     }

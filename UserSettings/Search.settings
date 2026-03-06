@@ -1,4 +1,6 @@
 trackSelection = true
+refreshSearchWindowsInPlayMode = false
+pickerAdvancedUI = false
 fetchPreview = true
 defaultFlags = 0
 keepOpen = false
@@ -10,6 +12,10 @@ scopes = {
 	"last_search.DD5CDD96" = ""
 	"OpenInspectorPreview.DD5CDD96" = "0"
 	"currentGroup.DD5CDD96" = "scene"
+	"picker_window_position_offset.075BCD15" = "-965.3334;168.6667;321.3333;552"
+	"picker_visibility_flags.075BCD15" = "264"
+	"picker_item_size.075BCD15" = "96"
+	"picker_inspector.075BCD15" = "0"
 }
 providers = {
 	adb = {
@@ -77,18 +83,61 @@ providers = {
 		priority = 85
 		defaultAction = null
 	}
+	at = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	st = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	presets_provider = {
+		active = false
+		priority = -10
+		defaultAction = null
+	}
+	profilermarkers = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
 }
 objectSelectors = {
 }
 recentSearches = [
+	"st: power"
+	"st: volum"
+	"st: ghost"
+	"st: store"
+	"st: shake-"
+	"st:"
+	"st: options"
+	"st: mode2"
+	"st: secon"
+	"st: slowmo"
+	"st: items"
+	"st: enemi"
+	"st: filter"
+	"st: smoot"
+	"st: shake cam"
+	"st: selec"
+	"st: mode4"
+	"st: mode3"
+	"st: arcad"
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
+hideTabs = false
 expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
 helperWidgetCurrentArea = "all"
 disabledIndexers = ""
+minIndexVariations = 2
+findProviderIndexHelper = true
+itemIconSize = 32
