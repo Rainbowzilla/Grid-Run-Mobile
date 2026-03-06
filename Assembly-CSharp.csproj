@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\Collectible.cs" />
     <Compile Include="Assets\Scripts\Endless Mode Scripts\TimeScore.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\JoystickControls.cs" />
     <Compile Include="Assets\Scripts\FadingScript.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\TestingChracterController.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\Note.cs" />
