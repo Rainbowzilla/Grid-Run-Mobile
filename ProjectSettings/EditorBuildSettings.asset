@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grid Run/Grid Run Arcade Mode.unity
     guid: 82a32633f9f921c458e09cd3ea0699b3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 691f59eb471a1a144bd4163fec7c4624, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 7954fe5f079dc4d46b27ac3650cd8293, type: 2}
+  m_UseUCBPForAssetBundles: 0
