@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1629868154880
-    m_Localized: High Score
+    m_Localized: Hi-Score
     m_Metadata:
       m_Items: []
   - m_Id: 1670682927104
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2023373561856
-    m_Localized: Options
+    m_Localized: Settings
     m_Metadata:
       m_Items: []
   - m_Id: 2057926238208
@@ -180,6 +180,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15100559122432
     m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506937617231872
+    m_Localized: Shoot as many enemies as you can before time runs out!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518238158532608
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518339836850176
+    m_Localized: Restart
     m_Metadata:
       m_Items: []
   references:

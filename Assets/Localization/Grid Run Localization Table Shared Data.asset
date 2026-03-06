@@ -179,6 +179,18 @@ MonoBehaviour:
     m_Key: volume
     m_Metadata:
       m_Items: []
+  - m_Id: 2506937617231872
+    m_Key: Explanation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518238158532608
+    m_Key: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518339836850176
+    m_Key: Restart
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

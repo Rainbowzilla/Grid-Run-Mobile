@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Arcade Mode Scripts\TimeToDestroy.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\PlayerData.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\ScoreUIColorChanger.cs" />
+    <Compile Include="Assets\Scripts\MobileInputHandler.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\StarNoteID.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Arcade\SceneManage.cs" />
@@ -1267,10 +1268,6 @@
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
