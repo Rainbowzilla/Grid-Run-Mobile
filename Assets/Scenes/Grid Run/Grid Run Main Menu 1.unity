@@ -471,8 +471,8 @@ MonoBehaviour:
   blueSkyBox: {fileID: 2100000, guid: 70424e5baaff40c419b28c8f10932ba9, type: 2}
   sun: {fileID: 21300000, guid: b9c4746ff77680c4f95d814adbcf2935, type: 3}
   moon: {fileID: 21300000, guid: c53ef4397d5b4164799d792fefc905fa, type: 3}
-  gridRunTitle: {fileID: 21300000, guid: 470095dd8dc42da4aa0dcb9dd6a5bfe5, type: 3}
-  gridRunTitleBlue: {fileID: 21300000, guid: b64d93548dbfdd141b25a8ef62820ca1, type: 3}
+  gridRunTitle: {fileID: 21300000, guid: b44dc34594ead5d4aa76ed94a4f4de4b, type: 3}
+  gridRunTitleBlue: {fileID: 21300000, guid: e762cd0c57b0a774e80b10b65f923cb1, type: 3}
   easyScore: {fileID: 321650173}
   mediumScore: {fileID: 1564081089}
   hardScore: {fileID: 229443807}
@@ -498,6 +498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenu
   _settingsMenuGO: {fileID: 1541756658}
   _crtFilterToggle: {fileID: 542096563}
+  _showScoreToggle: {fileID: 1298768019}
+  _cameraPerspectiveToggle: {fileID: 1442321117}
+  _cameraShakeToggle: {fileID: 611305884}
   _crtFilter: {fileID: 1050082143}
 --- !u!1 &71386734
 GameObject:
@@ -940,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &171915143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2912,7 +2915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 470095dd8dc42da4aa0dcb9dd6a5bfe5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b44dc34594ead5d4aa76ed94a4f4de4b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2964,7 +2967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -683.5148}
+  m_AnchoredPosition: {x: 1045.309, y: -692.6504}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401989969
@@ -3009,7 +3012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &431543474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3605,7 +3608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -56.501648}
+  m_AnchoredPosition: {x: 1045.309, y: -57.516724}
   m_SizeDelta: {x: 900, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506981132
@@ -4287,7 +4290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -846.51807}
+  m_AnchoredPosition: {x: 1045.309, y: -857.68384}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543239810
@@ -4508,10 +4511,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 62273574}
-        m_TargetAssemblyTypeName: GridRunMenu, Assembly-CSharp
-        m_MethodName: ToggleShakeCameraStaticVariable
-        m_Mode: 6
+      - m_Target: {fileID: 62273575}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: onCameraShakeToggle
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6831,7 +6834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &870386013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7216,7 +7219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -357.5082}
+  m_AnchoredPosition: {x: 1045.309, y: -362.58356}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891259034
@@ -7800,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &974671428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8232,7 +8235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCShader: {fileID: 4800000, guid: 7ada76238c0e5c54f9a3eac139a5544a, type: 3}
-  TimeX: 66.33796
+  TimeX: 91.01839
 --- !u!1 &1080576432
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,7 +8566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1101869513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9438,7 +9441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -194.50491}
+  m_AnchoredPosition: {x: 1045.309, y: -197.55013}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243475346
@@ -10197,10 +10200,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 62273574}
-        m_TargetAssemblyTypeName: GridRunMenu, Assembly-CSharp
-        m_MethodName: ToggleScoreStaticVariable
-        m_Mode: 6
+      - m_Target: {fileID: 62273575}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: onShowScoreToggle
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12096,10 +12099,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 62273574}
-        m_TargetAssemblyTypeName: GridRunMenu, Assembly-CSharp
-        m_MethodName: ToggleIcon
-        m_Mode: 6
+      - m_Target: {fileID: 62273575}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: onCameraPerspectiveToggle
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12125,7 +12128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1449773911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13209,7 +13212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1059.0293, y: -520.5115}
+  m_AnchoredPosition: {x: 1045.309, y: -527.61694}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542704050
@@ -13697,7 +13700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1616635795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14059,7 +14062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707847890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14284,7 +14287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1745437097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15915,7 +15918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1876654026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15989,7 +15992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1901283119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16313,7 +16316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1956159854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16659,7 +16662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1968956920
 RectTransform:
   m_ObjectHideFlags: 0

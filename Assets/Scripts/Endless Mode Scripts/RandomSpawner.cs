@@ -51,6 +51,8 @@ public class RandomSpawner : MonoBehaviour
         SetDifficulty();
         CheckStartForStatus();
         gridSpeed = maxCubeSpeed;
+        Debug.Log("Is the camera 3rd person perspective on: " + PlayerPrefs.GetInt("CameraPerspective"));
+        Debug.Log("Is the camera on smooth: " + StaticVariableController.statusBool3);
         //I'm slowly going insane coding this piece of trash code
     }
 
@@ -121,7 +123,7 @@ public class RandomSpawner : MonoBehaviour
     {
         int prefabIndex = Random.Range(0, 4);
         Instantiate(gameObjectPrefab_Array[prefabIndex], new Vector3(0, 1, zGateSpawnPosition), Quaternion.identity);
-        Debug.Log("Gameprefab " + prefabIndex + " has been spawned");
+        //Debug.Log("Gameprefab " + prefabIndex + " has been spawned");
 
         standInVar = standInVar + SpawnEventPerXScore;
         ObstacleController.speed = cubeSpeed;
@@ -130,7 +132,7 @@ public class RandomSpawner : MonoBehaviour
         gridSpeed = maxCubeSpeed;
         spawnRate = spawnRate - 0.005f;
         isGateVSpawning = false;
-        Debug.Log("Obstacle Cube's current speed: " + cubeSpeed + " / Spawn Rate: " + spawnRate);
+        //Debug.Log("Obstacle Cube's current speed: " + cubeSpeed + " / Spawn Rate: " + spawnRate);
         if (spawnRate < spawnRateCap)
         {
             spawnRate = spawnRateCap;
@@ -187,15 +189,15 @@ public class RandomSpawner : MonoBehaviour
     public void CheckStartForStatus()
     {
         //Status Bool 1 checks Score Canvas
-        if (StaticVariableController.statusBool1)
+        if (PlayerPrefs.GetInt("ShowScore", 1) == 1)
             scoreCanvas.SetActive(true);
-        else if (StaticVariableController.statusBool1 == false)
+        else
             scoreCanvas.SetActive(false);
 
         //Status Bool 2 checks Camera is Shaking
-        if (StaticVariableController.statusBool2)
+        if (PlayerPrefs.GetInt("CameraShake", 1) == 1)
             cameraShaker.GetComponentInChildren<CameraShake>().enabled = true;
-        else if (StaticVariableController.statusBool2 == false)
+        else
             cameraShaker.GetComponentInChildren<CameraShake>().enabled = false;
 
         //Status Bool 3 checks if player choose Smooth or Jittery Camera
@@ -224,14 +226,14 @@ public class RandomSpawner : MonoBehaviour
         }
 
         //Status Bool 4 sets First or Third Person Camera
-        if (StaticVariableController.statusBool4 == true)
+        if (PlayerPrefs.GetInt("CameraPerspective", 1) == 1)
         {
             cameraShaker.GetComponent<Transform>().position = new Vector3(0, 3, -4);
             cameraShaker.GetComponent<Transform>().rotation = new Quaternion(CameraFollow.xRotationOnCameraFollow = 15, 0, 0, 0);
             cameraShaker.GetComponent<Animator>().SetTrigger("play");
             gridBike.SetActive(true);
         }
-        else if (StaticVariableController.statusBool4 == false)
+        else
         {
             cameraShaker.GetComponent<Transform>().position = new Vector3(0, 1, 0);
             cameraShaker.GetComponent<Transform>().rotation = new Quaternion(CameraFollow.xRotationOnCameraFollow = 0, 0, 0, 0);
@@ -240,9 +242,9 @@ public class RandomSpawner : MonoBehaviour
         }
 
         //Status Bool 5 checks Camera Filter
-        if (StaticVariableController.statusBool5 == true)
+        if (PlayerPrefs.GetInt("CRTFilter") == 1)
             cameraShaker.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = true;
-        else if (StaticVariableController.statusBool5 == false)
+        else
             cameraShaker.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = false;
 
         //Status Bool 6 checks Music

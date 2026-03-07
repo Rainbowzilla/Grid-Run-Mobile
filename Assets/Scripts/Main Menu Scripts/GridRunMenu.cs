@@ -42,7 +42,7 @@ public class GridRunMenu : MonoBehaviour
         ToggleShakeCameraStaticVariable(false);
         ToggleScoreStaticVariable(true);
         ToggleSmoothOrInstantCameraVariable(true);
-        ToggleCameraFilter(true);
+        //ToggleCameraFilter(true);
         ToggleMusic(true);
         smoothText.enabled = true;
         floor.GetComponent<Renderer>().sharedMaterial = purpleSynthwave;
@@ -212,13 +212,13 @@ public class GridRunMenu : MonoBehaviour
         {
             cameraIconDefault.transform.rotation = Quaternion.Euler(15, 0, 15);
             cameraIconDefault.transform.localPosition = new Vector3(cameraIconDefault.transform.localPosition.x, cameraIconDefault.transform.localPosition.y + 15, cameraIconDefault.transform.localPosition.z);
-            StaticVariableController.statusBool4 = true;
+            PlayerPrefs.SetInt("CameraPerspective", 1);
         }
         if (!cameraStatus)
         {
             cameraIconDefault.transform.rotation = Quaternion.Euler(15, 0, 0);
             cameraIconDefault.transform.localPosition = new Vector3(cameraIconDefault.transform.localPosition.x, cameraIconDefault.transform.localPosition.y - 15, cameraIconDefault.transform.localPosition.z);
-            StaticVariableController.statusBool4 = false;
+            PlayerPrefs.SetInt("CameraPerspective", 0);
         }
     }
 
@@ -227,18 +227,21 @@ public class GridRunMenu : MonoBehaviour
         pew.Play();
         if (showScore)
         {
-            StaticVariableController.statusBool1 = true;
+            PlayerPrefs.SetInt("ShowScore", 1);
         }
-        else StaticVariableController.statusBool1 = false;
+        else PlayerPrefs.SetInt("ShowScore", 0);
     }
     public void ToggleShakeCameraStaticVariable(bool currentCameraShakeState)
     {
         pew.Play();
         if (currentCameraShakeState)
-            StaticVariableController.statusBool2 = true;
-        else StaticVariableController.statusBool2 = false;
+        {
+            PlayerPrefs.SetInt("CameraShake", 1);
+        }
+        else PlayerPrefs.SetInt("CameraShake", 0);
     }
 
+    
     public void ToggleSmoothOrInstantCameraVariable(bool currentSoSCameraState)
     {
         pew.Play();
@@ -256,20 +259,22 @@ public class GridRunMenu : MonoBehaviour
         }
     }
     
+    /*
     public void ToggleCameraFilter(bool currentCameraFilterState)
     {
         pew.Play();
         if (currentCameraFilterState)
         {
-            StaticVariableController.statusBool5 = true;
+            PlayerPrefs.SetInt("", );
             cameraFilterPack_TV_ARCADE.enabled = true;
         }
         else
         {
-            StaticVariableController.statusBool5 = false;
+            PlayerPrefs.SetInt("", );
             cameraFilterPack_TV_ARCADE.enabled = false;
         }
     }
+    */
 
     public void ToggleMusic(bool musicState)
     {

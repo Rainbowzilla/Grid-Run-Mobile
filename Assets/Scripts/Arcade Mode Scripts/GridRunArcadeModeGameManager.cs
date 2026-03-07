@@ -88,9 +88,9 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
         explosion.SetActive(false);
         gameOverCanvas.SetActive(false);
         isDoubleTime = false;
-        if (StaticVariableController.statusBool5 == true)
+        if (PlayerPrefs.GetInt("CRTFilter") == 1)
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = true;
-        else if (StaticVariableController.statusBool5 == false)
+        else if (PlayerPrefs.GetInt("CRTFilter") == 0)
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = false;
     }
 
