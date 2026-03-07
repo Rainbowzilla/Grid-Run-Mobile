@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MobileInputHandler : MonoBehaviour
 {
     public static MobileInputHandler Instance;
 
-    public float tiltSpeed = 5f; // Adjust this value to control the sensitivity of the tilt
+    public float tiltSpeed; // Adjust this value to control the sensitivity of the tilt
 
     public float maxXVelocity;
 
@@ -16,7 +17,10 @@ public class MobileInputHandler : MonoBehaviour
 
     public bool isForMobile;
 
-    public float minXForCameraTilt;
+    public Transform bikeParent;
+    public float tiltMultiplier;
+
+    //public Slider tiltSpeedSlider;
 
     private void Awake()
     {
@@ -30,7 +34,14 @@ public class MobileInputHandler : MonoBehaviour
     {
         // Enable gyroscope
         Input.gyro.enabled = true;
+
+        //tiltSpeedSlider.onValueChanged.AddListener(HandleTitlSlider);
     }
+
+    //private void HandleTitlSlider(float newTilt)
+    //{
+    //    tiltSpeed = newTilt;
+    //}
 
     void Update()
     {
@@ -48,5 +59,25 @@ public class MobileInputHandler : MonoBehaviour
         {
             xVelocity = -maxXVelocity;
         }
+
+        HandleBikeLean();
+    }
+
+    void HandleBikeLean()
+    {
+
+        float targetZ = xVelocity * tiltMultiplier;
+        targetZ = Mathf.Clamp(targetZ, -35f, 35f);
+
+        float t = 10f * Time.deltaTime;          // 10 = speed factor
+        t = Mathf.Clamp01(t);                    // prevent overshoot if framerate very low
+
+        Quaternion current = bikeParent.localRotation;
+        Quaternion target = Quaternion.Euler(targetZ, 90f, 0f);
+
+        bikeParent.localRotation = Quaternion.Lerp(current, target, t);
+
+        //bikeParent.eulerAngles = new Vector3(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
+        //bikeParent.Rotate(xVelocity * tiltMultiplier, xVelocity * tiltMultiplier, xVelocity * tiltMultiplier);
     }
 }

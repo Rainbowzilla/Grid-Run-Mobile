@@ -7,15 +7,18 @@ public class CameraLean : MonoBehaviour
     public Animator cameraAnim, bikeAnim;
     public bool animState;
 
-
-    void Update()
+    private void Start()
     {
         if (MobileInputHandler.Instance.isForMobile)
         {
-            //HandleMobileInput();
+            StartCoroutine(DisableBikeAnimation());
         }
-        else
-        { 
+    }
+
+    void Update()
+    {
+        if (!MobileInputHandler.Instance.isForMobile)
+        {
             HandleKeyPresses();
         }
     }
@@ -66,49 +69,9 @@ public class CameraLean : MonoBehaviour
         }
     }
 
-    void HandleMobileInput()
+    private IEnumerator DisableBikeAnimation()
     {
-        if (animState)
-        {
-            if (MobileInputHandler.Instance.xVelocity < MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                cameraAnim.ResetTrigger("idle");
-                cameraAnim.ResetTrigger("right");
-                cameraAnim.SetTrigger("left");
-            }
-            else if (MobileInputHandler.Instance.xVelocity > MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                cameraAnim.ResetTrigger("idle");
-                cameraAnim.ResetTrigger("left");
-                cameraAnim.SetTrigger("right");
-            }
-            else
-            {
-                cameraAnim.ResetTrigger("right");
-                cameraAnim.ResetTrigger("left");
-                cameraAnim.SetTrigger("idle");
-            }
-        }
-        if (!animState)
-        {
-            if (MobileInputHandler.Instance.xVelocity < MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                bikeAnim.ResetTrigger("idle");
-                bikeAnim.ResetTrigger("right");
-                bikeAnim.SetTrigger("left");
-            }
-            else if (MobileInputHandler.Instance.xVelocity > MobileInputHandler.Instance.minXForCameraTilt)
-            {
-                bikeAnim.ResetTrigger("idle");
-                bikeAnim.ResetTrigger("left");
-                bikeAnim.SetTrigger("right");
-            }
-            else
-            {
-                bikeAnim.ResetTrigger("right");
-                bikeAnim.ResetTrigger("left");
-                bikeAnim.SetTrigger("idle");
-            }
-        }
+        yield return new WaitForSeconds(1f);
+        bikeAnim.enabled = false;
     }
 }
