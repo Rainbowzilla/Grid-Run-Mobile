@@ -11,14 +11,17 @@ public class RunnerController : MonoBehaviour
     private Rigidbody rb;
     public PowerUps Power_Ups;
 
+    //slider controls
     public GameObject SliderCanvas;
     public Slider SliderControls;
 
-
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        //enable/disable slider depending on slider controls are enabled
         SliderCanvas.SetActive(false);
         if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile && MobileInputHandler.Instance.isJoystickControls)
         {
