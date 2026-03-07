@@ -33,6 +33,7 @@ public class BikeSelectManager : MonoBehaviour
                     unlockedBikes.Add(false);
             }
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
