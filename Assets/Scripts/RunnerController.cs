@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RunnerController : MonoBehaviour
 {
@@ -10,25 +11,30 @@ public class RunnerController : MonoBehaviour
     private Rigidbody rb;
     public PowerUps Power_Ups;
 
-    public JoystickControls JoystickControls;
+    public GameObject SliderCanvas;
+    public Slider SliderControls;
 
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        SliderCanvas.SetActive(false);
+        if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile && MobileInputHandler.Instance.isJoystickControls)
+        {
+            SliderCanvas.SetActive(true);
+        }
     }
 
     void FixedUpdate()
     {
-        if (JoystickControls.joystickVector.y != 0)
+        float moveHorizontal;
+
+        if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile && MobileInputHandler.Instance.isJoystickControls)
         {
-            rb.angularVelocity = new Vector2(JoystickControls.joystickVector.x * speed, JoystickControls.joystickVector.y * speed);
+            moveHorizontal = SliderControls.value*speed;
         }
-
-            float moveHorizontal;
-
-        if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile)
+        else if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile && !MobileInputHandler.Instance.isJoystickControls)
         {
             moveHorizontal = MobileInputHandler.Instance.xVelocity;
         }
@@ -48,6 +54,7 @@ public class RunnerController : MonoBehaviour
             gameObject.SetActive(false);
             Debug.Log("The Runner has died");
             explosion.Play();
+            SliderCanvas.SetActive(false);
         }
         if (other.gameObject.tag == "Slow Down")
         {

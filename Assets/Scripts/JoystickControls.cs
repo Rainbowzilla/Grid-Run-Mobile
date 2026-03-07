@@ -44,9 +44,6 @@ public class JoystickControls : MonoBehaviour
             joystick.transform.position = joystickTouchPos + joystickVector * joystickRadius;
         }
 
-
-
-
     }
 
 

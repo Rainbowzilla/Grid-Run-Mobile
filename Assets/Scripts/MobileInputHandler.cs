@@ -16,6 +16,8 @@ public class MobileInputHandler : MonoBehaviour
 
     public bool isForMobile;
 
+    public bool isJoystickControls;
+
     public float minXForCameraTilt;
 
     private void Awake()
