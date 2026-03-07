@@ -17,7 +17,7 @@ public class SettingsMenu : MonoBehaviour
         { 
             _crtFilterToggle.isOn = true; 
         }
-        else
+        else if(PlayerPrefs.GetInt("CRTFilter") == 0)
         {
             Debug.Log("startup crt filter check is false");
             _crtFilterToggle.isOn = false; 
