@@ -148,6 +148,7 @@
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\GetSceneName.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\BottomScript.cs" />
     <Compile Include="Assets\Scripts\Arcade Mode Scripts\PowerUps.cs" />
+    <Compile Include="Assets\Scripts\LanguageSelector.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Skadaddle Scripts\BallEnemy.cs" />
     <Compile Include="Assets\Scripts\IGNORE\You Must Die\Enemy\States\ChaseState.cs" />
     <Compile Include="Assets\Scripts\IGNORE\Bass Hero\Test Code\TemporaryLoadButton.cs" />
