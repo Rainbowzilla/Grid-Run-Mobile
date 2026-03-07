@@ -17,9 +17,18 @@ public class RunnerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3 (moveHorizontal * (speed * Time.timeScale), 0, 0);
-            //Debug.Log("Is AP Rounds Active = " + PowerUps.isAPRoundsActive);
+        float moveHorizontal;
+
+        if (MobileInputHandler.Instance != null && MobileInputHandler.Instance.isForMobile)
+        {
+            moveHorizontal = MobileInputHandler.Instance.xVelocity;
+        }
+        else
+        {
+            moveHorizontal = Input.GetAxis("Horizontal");
+        }
+
+        rb.linearVelocity = new Vector3(moveHorizontal * (speed * Time.timeScale), 0, 0);
     }
 
     void OnTriggerEnter(Collider other)

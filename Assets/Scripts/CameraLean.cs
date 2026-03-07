@@ -12,7 +12,7 @@ public class CameraLean : MonoBehaviour
     {
         if (MobileInputHandler.Instance.isForMobile)
         {
-            HandleMobileInput();
+            //HandleMobileInput();
         }
         else
         { 
