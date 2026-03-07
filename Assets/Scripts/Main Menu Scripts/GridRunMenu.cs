@@ -204,6 +204,16 @@ public class GridRunMenu : MonoBehaviour
         StaticVariableController.difficulty = input;
     }
 
+    public void LoadStore()
+    {
+        if (BikeSelectManager.Instance != null) 
+        {
+            BikeSelectManager.Instance.ui.SetActive(true);
+            BikeSelectManager.Instance.gridBike.SetActive(true);
+        }
+        SceneManager.LoadScene("Alex- Character Select UI");
+    }
+
     #region Monobehaviour API
     public void ToggleIcon(bool cameraStatus)
     {

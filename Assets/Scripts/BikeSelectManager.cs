@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BikeSelectManager : MonoBehaviour
 {
@@ -8,15 +9,25 @@ public class BikeSelectManager : MonoBehaviour
     public List<bool> unlockedBikes = new List<bool>();
     public List<BikeDataClass> bikes = new List<BikeDataClass>();
 
+    public int currentBikeIndex = 0;
     public GameObject currentBike;
-
+    public GameObject ui;
+    public GameObject gridBike;
     private void Awake()
     {
-        if (Instance == null)
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
             Instance = this;
+        }
 
         if (!PlayerPrefs.HasKey("HasInitialized"))
         {
+            Debug.Log("initializing");
             unlockedBikes = InitializeDefaults();
             PlayerPrefs.SetInt("HasInitialized", 1);
             PlayerPrefs.Save();
@@ -82,6 +93,7 @@ public class BikeSelectManager : MonoBehaviour
             Transform bikeTransform = currentBike.transform;
             Destroy(currentBike);
             currentBike = Instantiate(newBike.bikePrefab, bikeTransform.position, Quaternion.identity);
+            currentBikeIndex = newBike.bikeIndex;
         }
         else
         {
@@ -120,5 +132,12 @@ public class BikeSelectManager : MonoBehaviour
         PlayerPrefs.Save();
 
         return defaultUnlocks;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        ui.SetActive(false);
+        //gridBike.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 }
