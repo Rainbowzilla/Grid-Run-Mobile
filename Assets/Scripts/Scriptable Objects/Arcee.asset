@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Arcee
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 919132149155446097, guid: 41926aea2addfc84bab3b3db5d98b1db, type: 3}
+  bikePrefab: {fileID: 7339980183464837841, guid: 4a3fc8cb28d416d49bf16db9966269b1, type: 3}
   bikeIndex: 7
   bikeName: Arcee

@@ -11,8 +11,6 @@ public class BikeSelectManager : MonoBehaviour
 
     public int currentBikeIndex = 0;
     public GameObject currentBike;
-    public GameObject ui;
-    public GameObject gridBike;
     private void Awake()
     {
 
@@ -49,7 +47,19 @@ public class BikeSelectManager : MonoBehaviour
 
     void Start()
     {
-        
+        bool bikeAssigned = false;
+        int i = 0;
+
+        do
+        {
+            if (bikes[i].bikeIndex == currentBikeIndex)
+            {
+                SelectCharacter(bikes[i]);
+                Debug.Log("Current bike set to " + bikes[i].bikeName);
+            }
+
+            i++;
+        }while (i < bikes.Count && !bikeAssigned);
     }
 
     void Update()
@@ -79,7 +89,6 @@ public class BikeSelectManager : MonoBehaviour
     {
         if (unlockedBikes[queryBike.bikeIndex])
         {
-            Debug.Log("Bike " + queryBike.bikeName + " is unlocked");
             return true;
         }
         Debug.Log("Bike " + queryBike.bikeName + " is NOT unlocked");
@@ -136,8 +145,8 @@ public class BikeSelectManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        ui.SetActive(false);
         //gridBike.SetActive(false);
         SceneManager.LoadScene(0);
+        gameObject.SetActive(false);
     }
 }

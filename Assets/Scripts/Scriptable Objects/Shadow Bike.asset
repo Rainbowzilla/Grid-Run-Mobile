@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Shadow Bike
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 5945277280087109631, guid: 65e830951b2322747b5fc26e83f377b2, type: 3}
+  bikePrefab: {fileID: 6963889902434151737, guid: 37ce2e7a7cbb16347b176f07504b446f, type: 3}
   bikeIndex: 6
   bikeName: Shadow Bike

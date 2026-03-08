@@ -8,5 +8,7 @@ public class TemporaryLoadButton : MonoBehaviour
     public void LoadBackToSong(int i)
     {
         SceneManager.LoadScene(i);
+        Debug.Log("Loading scene " + i);
+        BikeSelectManager.Instance.gameObject.SetActive(false);
     }
 }

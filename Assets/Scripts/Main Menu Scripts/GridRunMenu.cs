@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
-using UnityEngine.Windows;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using Input = UnityEngine.Input;
-using Unity.VisualScripting;
+using TMPro;
 
 public class GridRunMenu : MonoBehaviour
 {
@@ -208,8 +205,7 @@ public class GridRunMenu : MonoBehaviour
     {
         if (BikeSelectManager.Instance != null) 
         {
-            BikeSelectManager.Instance.ui.SetActive(true);
-            BikeSelectManager.Instance.gridBike.SetActive(true);
+            BikeSelectManager.Instance.gameObject.SetActive(true);
         }
         SceneManager.LoadScene("Alex- Character Select UI");
     }

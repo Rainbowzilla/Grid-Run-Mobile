@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Grid Bike
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 919132149155446097, guid: 15b2731a7c89cf94ebb6c7a8694a3374, type: 3}
+  bikePrefab: {fileID: 6169546372888357532, guid: 7cc87c5e176d2254f85aaa023d48f74b, type: 3}
   bikeIndex: 0
   bikeName: Grid Bike
