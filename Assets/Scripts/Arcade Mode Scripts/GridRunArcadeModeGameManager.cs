@@ -86,6 +86,7 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
         UpdateHighScoreText();
         AudioListener.pause = false;
         doublePoints.enabled = false;
+        doublePointsPortrait.enabled = false;
         isGamePaused = false;
         pauseCanvas.SetActive(false);
         explosion.SetActive(false);
@@ -95,10 +96,13 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = true;
         else if (PlayerPrefs.GetInt("CRTFilter") == 0)
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = false;
+
+        SwitchAspectRatio();
     }
 
     void Update()
     {
+        Debug.Log("Yo is the static bool status? " + isInLandscapeMode);
         //Debug.Log("Is Player Dead = " + RunnerController.isPlayerDead);
         if (GridController.didGridCollide == true)
         {
@@ -156,7 +160,7 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
 
     public void SwitchAspectRatio()
     {
-        if (Screen.width > Screen.height)
+        if (Screen.height > Screen.width)
         {
             portraitLayout.SetActive(true);
             landscapeLayout.SetActive(false);

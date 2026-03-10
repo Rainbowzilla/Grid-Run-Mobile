@@ -82,6 +82,10 @@ public class PowerUps : MonoBehaviour
         ghost.enabled = false;
         apRounds.enabled = false;
         isGhostActivated = false;
+        fullAutoPortrait.enabled = false;
+        slowMoPortrait.enabled = false;
+        ghostPortrait.enabled = false;
+        apRoundsPortrait.enabled = false;
         bodyMaterial.color = originalColor;
 
         apRoundTrail = new Gradient();
@@ -133,7 +137,17 @@ public class PowerUps : MonoBehaviour
 
             player.GetComponent<RunnerController>().speed = 75f;
 
-            slowMo.enabled = true;
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+            {
+                slowMo.enabled = true;
+                slowMoPortrait.enabled = false;
+            }
+            else if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+            {
+                slowMo.enabled = false;
+                slowMoPortrait.enabled = true;
+            }
+
 
             laserShot.pitch = 0.75f;
             laserShotHigherPitch.pitch = 0.75f;
