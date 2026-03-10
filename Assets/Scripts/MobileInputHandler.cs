@@ -20,6 +20,8 @@ public class MobileInputHandler : MonoBehaviour
     public Transform bikeParent;
     public float tiltMultiplier;
 
+    public bool isTiltMode;
+
     //public Slider tiltSpeedSlider;
 
     private void Awake()
@@ -33,17 +35,28 @@ public class MobileInputHandler : MonoBehaviour
     void Start()
     {
         // Enable gyroscope
-        Input.gyro.enabled = true;
-
-        //tiltSpeedSlider.onValueChanged.AddListener(HandleTitlSlider);
+        if (isTiltMode)
+        { 
+            Input.gyro.enabled = true;
+        }
     }
 
-    //private void HandleTitlSlider(float newTilt)
-    //{
-    //    tiltSpeed = newTilt;
-    //}
-
     void Update()
+    {
+        if (isTiltMode)
+        {
+            HandleTiltControls();
+        }
+        else
+        { 
+            HandleTouchAndDragControls();
+        }
+
+
+        HandleBikeLean();
+    }
+
+    void HandleTiltControls()
     {
         // Get the tilt angle around the x-axis (pitch)
         float tiltAngle = Input.gyro.attitude.eulerAngles.x;
@@ -59,8 +72,11 @@ public class MobileInputHandler : MonoBehaviour
         {
             xVelocity = -maxXVelocity;
         }
+    }
 
-        HandleBikeLean();
+    void HandleTouchAndDragControls()
+    {
+        //TODO Grok, fill this in. Instead affecting a rigidbody, simply add or subtract from xVelocity
     }
 
     void HandleBikeLean()

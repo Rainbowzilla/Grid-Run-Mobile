@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCShader: {fileID: 4800000, guid: 7ada76238c0e5c54f9a3eac139a5544a, type: 3}
-  TimeX: 0.44983143
+  TimeX: 75.84581
 --- !u!114 &431222435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15196,6 +15196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663053594}
   - component: {fileID: 1663053593}
+  - component: {fileID: 1663053595}
   m_Layer: 0
   m_Name: Mobile Input Manager
   m_TagString: Untagged
@@ -15236,6 +15237,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1663053595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663053592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93f99a80a34303448ff15360b11275e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HorizontalDragController
+  targetRb: {fileID: 987833277}
+  sensitivity: 0.18
+  maxHorizontalSpeed: 16
+  releaseDamping: 5.5
+  deadZonePixels: 14
+  minDragScreenFractionToStart: 0.07
 --- !u!1 &1705800626
 GameObject:
   m_ObjectHideFlags: 0
