@@ -21,6 +21,7 @@ public class GridRunMenu : MonoBehaviour
     public CameraFilterPack_TV_ARCADE cameraFilterPack_TV_ARCADE;
     public AudioSource Something_You_Know_But_Dont;
     public GameObject portraitLayout, landscapeLayout;
+    public GameObject languagesMenu;
 
 
     void Start()
@@ -138,6 +139,7 @@ public class GridRunMenu : MonoBehaviour
         if (x == 0)
         {
             mainMenu.SetActive(true);
+            languagesMenu.SetActive(true);
             endlessMenu.SetActive(false);
             arcadeMenu.SetActive(false);
             menuID = 0;
@@ -145,6 +147,7 @@ public class GridRunMenu : MonoBehaviour
         if (x == 1)
         {
             mainMenu.SetActive(false);
+            languagesMenu.SetActive(false);
             endlessMenu.SetActive(true);
             arcadeMenu.SetActive(false);
             menuID = 1;
@@ -152,6 +155,7 @@ public class GridRunMenu : MonoBehaviour
         if (x == 2)
         {
             mainMenu.SetActive(false);
+            languagesMenu.SetActive(false);
             endlessMenu.SetActive(false);
             arcadeMenu.SetActive(true);
             menuID = 2;
