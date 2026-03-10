@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Cyclizar
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 1145507030752657971, guid: cd9d54aba515bfe4799aff4b0630bc2e, type: 3}
+  bikePrefab: {fileID: 4288157723746340868, guid: cd9d54aba515bfe4799aff4b0630bc2e, type: 3}
   bikeIndex: 3
   bikeName: Cyclizar
