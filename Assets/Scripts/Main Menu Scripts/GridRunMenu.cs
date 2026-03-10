@@ -206,6 +206,7 @@ public class GridRunMenu : MonoBehaviour
         if (BikeSelectManager.Instance != null) 
         {
             BikeSelectManager.Instance.gameObject.SetActive(true);
+            Debug.Log("BikeSelectManager instance set to active");
         }
         SceneManager.LoadScene("Alex- Character Select UI");
     }

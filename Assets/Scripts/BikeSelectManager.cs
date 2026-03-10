@@ -42,7 +42,22 @@ public class BikeSelectManager : MonoBehaviour
                     unlockedBikes.Add(false);
             }
         }
+        
         DontDestroyOnLoad(gameObject);
+
+        for(int i = 0; i <= currentBikeIndex; i++)
+        {
+            if (bikes[i].bikeIndex == currentBikeIndex)
+            {
+                if(currentBike != null)
+                {
+                    Destroy(currentBike);
+                    Instantiate(bikes[i].bikePrefab, Vector3.zero, Quaternion.identity);
+                    Debug.Log("Current bike set to " + bikes[i].bikeName);
+                }
+                break;
+            }
+        }
     }
 
     void Start()
@@ -99,9 +114,11 @@ public class BikeSelectManager : MonoBehaviour
     {
         if(CheckForUnlocked(newBike))
         {
-            Transform bikeTransform = currentBike.transform;
-            Destroy(currentBike);
-            currentBike = Instantiate(newBike.bikePrefab, bikeTransform.position, Quaternion.identity);
+            if(currentBike != null)
+            {
+                Destroy(currentBike);
+            }
+            currentBike = Instantiate(newBike.bikePrefab, new Vector3(0,0,0), Quaternion.identity);
             currentBikeIndex = newBike.bikeIndex;
         }
         else
