@@ -52,10 +52,13 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI countDownText;
     public PowerUps pu;
     public Image doublePoints;
+    public Image doublePointsPortrait;
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public GameObject mainCamera;
     public GameObject explosion;
+    public GameObject landscapeLayout, portraitLayout;
+    public static bool isInLandscapeMode;
 
 
     void Start()
@@ -131,12 +134,39 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
         if (isDoubleTime == true)
         {
             DoubleScore();
-            doublePoints.enabled = true;
+            if (isInLandscapeMode == true)
+            {
+                doublePoints.enabled = true;
+            }
+            else if (isInLandscapeMode == false)
+                doublePointsPortrait.enabled = true;
         }
         else if (isDoubleTime == false)
         {
             Points_Per_Hit = pointsPerHit;
-            doublePoints.enabled = false;
+            if (isInLandscapeMode == true)
+            {
+                doublePoints.enabled = false;
+            }
+            else if (isInLandscapeMode == false)
+                doublePointsPortrait.enabled = false;
+        }
+        SwitchAspectRatio();
+    }
+
+    public void SwitchAspectRatio()
+    {
+        if (Screen.width > Screen.height)
+        {
+            portraitLayout.SetActive(true);
+            landscapeLayout.SetActive(false);
+            isInLandscapeMode = false;
+        }
+        else
+        {
+            portraitLayout.SetActive(false);
+            landscapeLayout.SetActive(true);
+            isInLandscapeMode = true;
         }
     }
 
