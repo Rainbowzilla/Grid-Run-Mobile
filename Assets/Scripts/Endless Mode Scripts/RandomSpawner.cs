@@ -191,7 +191,7 @@ public class RandomSpawner : MonoBehaviour
         //Status Bool 1 checks Score Canvas
         if (PlayerPrefs.GetInt("ShowScore", 1) == 1)
             scoreCanvas.SetActive(true);
-        else
+        else if (PlayerPrefs.GetInt("ShowScore", 1) == 0)
             scoreCanvas.SetActive(false);
 
         //Status Bool 2 checks Camera is Shaking
@@ -248,12 +248,12 @@ public class RandomSpawner : MonoBehaviour
             cameraShaker.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = false;
 
         //Status Bool 6 checks Music
-        if (StaticVariableController.statusBool6 == true)
+        if (PlayerPrefs.GetInt("MusicToggle") == 1)
         {
             TV_Head.Play();
             AudioListener.pause = false;
         }
-        else if (StaticVariableController.statusBool6 == false)
+        else
         {
             TV_Head.Pause();
             AudioListener.pause = true;

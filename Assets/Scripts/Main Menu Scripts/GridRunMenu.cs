@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using Input = UnityEngine.Input;
 using Unity.VisualScripting;
 
+
 public class GridRunMenu : MonoBehaviour
 {
     public GameObject mainMenu, endlessMenu, arcadeMenu;
@@ -22,6 +23,7 @@ public class GridRunMenu : MonoBehaviour
     public AudioSource pew;
     public CameraFilterPack_TV_ARCADE cameraFilterPack_TV_ARCADE;
     public AudioSource Something_You_Know_But_Dont;
+    public GameObject portraitLayout, landscapeLayout;
 
 
     void Start()
@@ -38,12 +40,11 @@ public class GridRunMenu : MonoBehaviour
         arcadeScore.text = $"{PlayerPrefs.GetInt("HighScoreGridRunArcade", 0)}";
 
         menuID = 0;
-        ToggleIcon(true);
-        ToggleShakeCameraStaticVariable(false);
-        ToggleScoreStaticVariable(true);
+        ToggleIcon(PlayerPrefs.GetInt("CameraPerspective", 1) == 1);
+        ToggleShakeCameraStaticVariable(PlayerPrefs.GetInt("CameraShake", 0) == 1);
+        ToggleScoreStaticVariable(PlayerPrefs.GetInt("ShowScore", 1) == 1);
+        ToggleMusic();
         ToggleSmoothOrInstantCameraVariable(true);
-        //ToggleCameraFilter(true);
-        ToggleMusic(true);
         smoothText.enabled = true;
         floor.GetComponent<Renderer>().sharedMaterial = purpleSynthwave;
         leftWall.GetComponent<Renderer>().sharedMaterial = purpleSynthwave;
@@ -132,6 +133,7 @@ public class GridRunMenu : MonoBehaviour
                 GoToAnotherMenu(0);
             }
         }
+        SwitchAspectRatio();
     }
 
     public void GoToAnotherMenu(int x)
@@ -158,7 +160,6 @@ public class GridRunMenu : MonoBehaviour
             menuID = 2;
         }
     }
-
 
     public void ChangeEnviornment(int x)
     {
@@ -193,6 +194,20 @@ public class GridRunMenu : MonoBehaviour
         endlessMenu.SetActive(false);
         SceneManager.LoadScene("Grid Run");
         StaticVariableController.difficulty = x;
+    }
+
+    public void SwitchAspectRatio()
+    {
+        if (Screen.width > Screen.height)
+        {
+            portraitLayout.SetActive(true);
+            landscapeLayout.SetActive(false);
+        }
+        else
+        {
+            portraitLayout.SetActive(false);
+            landscapeLayout.SetActive(true);
+        }
     }
     public void LoadScene(string sceneName)
     {
@@ -276,17 +291,15 @@ public class GridRunMenu : MonoBehaviour
     }
     */
 
-    public void ToggleMusic(bool musicState)
+    public void ToggleMusic()
     {
-        if (musicState)
+        if (PlayerPrefs.GetInt("MusicToggle", 1) == 1)
         {
             Something_You_Know_But_Dont.Play();
-            StaticVariableController.statusBool6 = true;
         }
         else
         {
             Something_You_Know_But_Dont.Pause();
-            StaticVariableController.statusBool6 = false;
         }
     }
 

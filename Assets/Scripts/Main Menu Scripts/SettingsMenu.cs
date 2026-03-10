@@ -9,8 +9,10 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle _showScoreToggle;
     [SerializeField] private Toggle _cameraPerspectiveToggle;
     [SerializeField] private Toggle _cameraShakeToggle;
+    [SerializeField] private Toggle _musicToggle;
     [Header("Misc assignments")]
     [SerializeField] private CameraFilterPack_TV_ARCADE _crtFilter;
+    [SerializeField] private AudioSource Something_You_Know_But_Dont;
 
     private void Start()
     {
@@ -31,6 +33,12 @@ public class SettingsMenu : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("CameraShake"))
             PlayerPrefs.SetInt("CameraShake", 0);
+
+        if (!PlayerPrefs.HasKey("CameraToggle"))
+            PlayerPrefs.SetInt("CameraToggle", 1);
+
+        if (!PlayerPrefs.HasKey("MusicToggle"))
+            PlayerPrefs.SetInt("MusicToggle", 1);
         SoManyIfStatements();
 
         _settingsMenuGO.SetActive(false);
@@ -66,6 +74,16 @@ public class SettingsMenu : MonoBehaviour
     public void onCameraShakeToggle(bool value)
     {
         PlayerPrefs.SetInt("CameraShake", value ? 1 : 0);
+    }
+
+    public void onMusicToggle(bool value)
+    {
+        PlayerPrefs.SetInt("MusicToggle", value ? 1 : 0);
+
+        if (value)
+            Something_You_Know_But_Dont.Play();
+        else
+            Something_You_Know_But_Dont.Pause();
     }
 
     void SoManyIfStatements()
@@ -106,7 +124,6 @@ public class SettingsMenu : MonoBehaviour
             //_cameraPerspectiveToggle.enabled = false;
         }
 
-
         if (PlayerPrefs.GetInt("CameraShake") == 1)
         {
             _cameraShakeToggle.isOn = true;
@@ -116,6 +133,18 @@ public class SettingsMenu : MonoBehaviour
         {
             Debug.Log("startup camera shake check is false");
             _cameraShakeToggle.isOn = false;
+            //_cameraShakeToggle.enabled = false;
+        }
+
+        if (PlayerPrefs.GetInt("MusicToggle") == 1)
+        {
+            _musicToggle.isOn = true;
+            _musicToggle.enabled = true;
+        }
+        else
+        {
+            Debug.Log("startup music check is false");
+            _musicToggle.isOn = false;
             //_cameraShakeToggle.enabled = false;
         }
     }
