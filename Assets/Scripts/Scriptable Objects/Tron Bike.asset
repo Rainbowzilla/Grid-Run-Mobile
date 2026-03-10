@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Tron Bike
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 5304053678235708227, guid: 79e34c35a5b920840ba638efae8b7d73, type: 3}
+  bikePrefab: {fileID: 2863450703525605696, guid: 061852c3abf61bc40b8afea257ced5e0, type: 3}
   bikeIndex: 1
   bikeName: LightCycle

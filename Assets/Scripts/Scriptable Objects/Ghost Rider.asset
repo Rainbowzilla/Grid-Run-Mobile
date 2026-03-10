@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Ghost Rider
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 5174243433255990046, guid: 925cce82729550d498753fe37520886f, type: 3}
+  bikePrefab: {fileID: 3867555613200096515, guid: 925cce82729550d498753fe37520886f, type: 3}
   bikeIndex: 4
   bikeName: Ghost Rider

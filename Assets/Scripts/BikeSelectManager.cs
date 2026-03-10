@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BikeSelectManager : MonoBehaviour
 {
@@ -8,15 +9,23 @@ public class BikeSelectManager : MonoBehaviour
     public List<bool> unlockedBikes = new List<bool>();
     public List<BikeDataClass> bikes = new List<BikeDataClass>();
 
+    public int currentBikeIndex = 0;
     public GameObject currentBike;
-
     private void Awake()
     {
-        if (Instance == null)
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
             Instance = this;
+        }
 
         if (!PlayerPrefs.HasKey("HasInitialized"))
         {
+            Debug.Log("initializing");
             unlockedBikes = InitializeDefaults();
             PlayerPrefs.SetInt("HasInitialized", 1);
             PlayerPrefs.Save();
@@ -33,11 +42,39 @@ public class BikeSelectManager : MonoBehaviour
                     unlockedBikes.Add(false);
             }
         }
+        
+        DontDestroyOnLoad(gameObject);
+
+        for(int i = 0; i <= currentBikeIndex; i++)
+        {
+            if (bikes[i].bikeIndex == currentBikeIndex)
+            {
+                if(currentBike != null)
+                {
+                    Destroy(currentBike);
+                    Instantiate(bikes[i].bikePrefab, Vector3.zero, Quaternion.identity);
+                    Debug.Log("Current bike set to " + bikes[i].bikeName);
+                }
+                break;
+            }
+        }
     }
 
     void Start()
     {
-        
+        bool bikeAssigned = false;
+        int i = 0;
+
+        do
+        {
+            if (bikes[i].bikeIndex == currentBikeIndex)
+            {
+                SelectCharacter(bikes[i]);
+                Debug.Log("Current bike set to " + bikes[i].bikeName);
+            }
+
+            i++;
+        }while (i < bikes.Count && !bikeAssigned);
     }
 
     void Update()
@@ -67,7 +104,6 @@ public class BikeSelectManager : MonoBehaviour
     {
         if (unlockedBikes[queryBike.bikeIndex])
         {
-            Debug.Log("Bike " + queryBike.bikeName + " is unlocked");
             return true;
         }
         Debug.Log("Bike " + queryBike.bikeName + " is NOT unlocked");
@@ -78,9 +114,12 @@ public class BikeSelectManager : MonoBehaviour
     {
         if(CheckForUnlocked(newBike))
         {
-            Transform bikeTransform = currentBike.transform;
-            Destroy(currentBike);
-            currentBike = Instantiate(newBike.bikePrefab, bikeTransform.position, Quaternion.identity);
+            if(currentBike != null)
+            {
+                Destroy(currentBike);
+            }
+            currentBike = Instantiate(newBike.bikePrefab, new Vector3(0,0,0), Quaternion.identity);
+            currentBikeIndex = newBike.bikeIndex;
         }
         else
         {
@@ -119,5 +158,12 @@ public class BikeSelectManager : MonoBehaviour
         PlayerPrefs.Save();
 
         return defaultUnlocks;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        //gridBike.SetActive(false);
+        SceneManager.LoadScene(0);
+        gameObject.SetActive(false);
     }
 }

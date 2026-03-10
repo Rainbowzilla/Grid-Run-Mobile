@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Akira
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 0}
+  bikePrefab: {fileID: 3986484447150616733, guid: 4f919eb79356f99438ca90de88785f0a, type: 3}
   bikeIndex: 5
   bikeName: Akira

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
-using UnityEngine.Windows;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using Input = UnityEngine.Input;
-using Unity.VisualScripting;
+using TMPro;
 
 
 public class GridRunMenu : MonoBehaviour
@@ -217,6 +214,16 @@ public class GridRunMenu : MonoBehaviour
     public void SetDifficultyNumber(int input)
     {
         StaticVariableController.difficulty = input;
+    }
+
+    public void LoadStore()
+    {
+        if (BikeSelectManager.Instance != null) 
+        {
+            BikeSelectManager.Instance.gameObject.SetActive(true);
+            Debug.Log("BikeSelectManager instance set to active");
+        }
+        SceneManager.LoadScene("Alex- Character Select UI");
     }
 
     #region Monobehaviour API
