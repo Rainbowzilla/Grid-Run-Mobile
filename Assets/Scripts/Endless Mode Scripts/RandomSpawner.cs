@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 //using UnityEditor.Presets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RandomSpawner : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class RandomSpawner : MonoBehaviour
     private float spawnRateCap = 0.0001f;
     public GameObject cameraShaker, player, playerParent;
     GameObject gridBike;
+    public Image phoneIcon;
 
     int difficultySettingNumber;
 
@@ -258,6 +260,15 @@ public class RandomSpawner : MonoBehaviour
             TV_Head.Pause();
             AudioListener.pause = true;
         }
+
+        if (PlayerPrefs.GetInt("PhoneTutorial") == 1)
+        {
+            phoneIcon.enabled = true;
+        }
+        else
+        {
+            phoneIcon.enabled = false;
+        }
     }
 
     IEnumerator ViolentlyShakeUponDeath()
@@ -266,5 +277,11 @@ public class RandomSpawner : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         cameraShaker.GetComponentInChildren<CameraShake>().shakeIntensity = 0;
         cameraShaker.GetComponentInChildren<CameraShake>().enabled = false;
+    }
+
+    public void TurnOffTutorialImageAfterEvent()
+    {
+        //Yes this is a real setting for one function
+        PlayerPrefs.SetInt("PhoneTutorial", 0);
     }
 }

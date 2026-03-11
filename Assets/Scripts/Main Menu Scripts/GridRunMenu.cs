@@ -230,6 +230,12 @@ public class GridRunMenu : MonoBehaviour
         SceneManager.LoadScene("Alex- Character Select UI");
     }
 
+    public void TurnOnTutorialImageAfterEvent()
+    {
+        //Yes this is a real setting for one function
+        PlayerPrefs.SetInt("PhoneTutorial", 1);
+    }
+
     #region Monobehaviour API
     public void ToggleIcon(bool cameraStatus)
     {

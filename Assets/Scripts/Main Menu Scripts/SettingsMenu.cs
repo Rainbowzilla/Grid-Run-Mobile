@@ -10,6 +10,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle _cameraPerspectiveToggle;
     [SerializeField] private Toggle _cameraShakeToggle;
     [SerializeField] private Toggle _musicToggle;
+    [SerializeField] private Toggle _tutorialToggle;
     [Header("Misc assignments")]
     [SerializeField] private CameraFilterPack_TV_ARCADE _crtFilter;
     [SerializeField] private AudioSource Something_You_Know_But_Dont;
@@ -39,6 +40,9 @@ public class SettingsMenu : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("MusicToggle"))
             PlayerPrefs.SetInt("MusicToggle", 1);
+
+        if (!PlayerPrefs.HasKey("PhoneTutorial"))
+            PlayerPrefs.SetInt("PhoneTutorial", 1);
         SoManyIfStatements();
 
         _settingsMenuGO.SetActive(false);
@@ -84,6 +88,11 @@ public class SettingsMenu : MonoBehaviour
             Something_You_Know_But_Dont.Play();
         else
             Something_You_Know_But_Dont.Pause();
+    }
+
+    public void onTutorialToggle(bool value)
+    {
+        PlayerPrefs.SetInt("PhoneTutorial", value ? 1 : 0);
     }
 
     void SoManyIfStatements()
@@ -147,5 +156,13 @@ public class SettingsMenu : MonoBehaviour
             _musicToggle.isOn = false;
             //_cameraShakeToggle.enabled = false;
         }
+
+        if (PlayerPrefs.GetInt("PhoneTutorial") == 1)
+        {
+            _tutorialToggle.isOn = true;
+            _tutorialToggle.enabled = true;
+        }
+        else
+            _tutorialToggle.isOn = false;
     }
 }
