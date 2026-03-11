@@ -49,10 +49,10 @@ public class MobileInputHandler : MonoBehaviour
 
     void Start()
     {
-
-
+        tiltMultiplier = PlayerPrefs.GetFloat("TiltSensitivity", 13f);
+        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", 0.35f);
         // Sync toggle UI with starting mode
-        if (tiltModeToggle != null)
+        if(PlayerPrefs.GetInt("IsTiltMode") == 1)//if (tiltModeToggle != null)
         {
             tiltModeToggle.isOn = isTiltMode;
             tiltModeToggle.onValueChanged.AddListener(OnTiltModeToggleChanged);

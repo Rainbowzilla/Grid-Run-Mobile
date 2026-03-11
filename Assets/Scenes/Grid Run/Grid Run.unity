@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCShader: {fileID: 4800000, guid: 7ada76238c0e5c54f9a3eac139a5544a, type: 3}
-  TimeX: 54.471886
+  TimeX: 16.632837
 --- !u!114 &431222435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15464,9 +15464,9 @@ MonoBehaviour:
   xVelocity: 0
   isForMobile: 1
   bikeParent: {fileID: 1088539527}
-  tiltMultiplier: 11
+  tiltMultiplier: 13
   tiltModeToggle: {fileID: 481280400}
-  dragSensitivity: 0.3
+  dragSensitivity: 0.35
   dragReleaseDamping: 7.5
 --- !u!4 &1663053594
 Transform:
