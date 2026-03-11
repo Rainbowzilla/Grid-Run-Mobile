@@ -11245,7 +11245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCShader: {fileID: 4800000, guid: 7ada76238c0e5c54f9a3eac139a5544a, type: 3}
-  TimeX: 26.96396
+  TimeX: 68.050735
 --- !u!1 &1062620557
 GameObject:
   m_ObjectHideFlags: 0
@@ -21565,9 +21565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:58ea28879d50b66449e5744e7aa99fd3
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 4000403375353856
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

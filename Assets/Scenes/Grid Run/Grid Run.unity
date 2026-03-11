@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCShader: {fileID: 4800000, guid: 7ada76238c0e5c54f9a3eac139a5544a, type: 3}
-  TimeX: 30.172533
+  TimeX: 30.859201
 --- !u!114 &431222435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15206,7 +15206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1653142571
 MonoBehaviour:
   m_ObjectHideFlags: 0

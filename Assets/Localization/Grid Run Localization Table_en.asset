@@ -198,6 +198,10 @@ MonoBehaviour:
     m_Localized: Tap
     m_Metadata:
       m_Items: []
+  - m_Id: 4000403375353856
+    m_Localized: Tilt
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
