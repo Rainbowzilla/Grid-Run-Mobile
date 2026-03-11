@@ -13,7 +13,11 @@ public class GridBikeBehaviour : MonoBehaviour
     void Update()
     {
         tire.transform.Rotate(new Vector3(0, 0, tireRotationSpeed) * Time.deltaTime);
-        Tilt();
+        
+        if (!MobileInputHandler.Instance.isForMobile)
+        {
+            Tilt();
+        }
     }
 
     public void Tilt()
