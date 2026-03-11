@@ -52,7 +52,7 @@ public class BikeSelectManager : MonoBehaviour
                 if(currentBike != null)
                 {
                     Destroy(currentBike);
-                    Instantiate(bikes[i].bikePrefab, Vector3.zero, Quaternion.identity);
+                    Instantiate(bikes[i].bikePrefab, bikes[i].spawnPositionOffset, Quaternion.Euler(bikes[i].spawnRotationOffset));
                     Debug.Log("Current bike set to " + bikes[i].bikeName);
                 }
                 break;
@@ -118,7 +118,7 @@ public class BikeSelectManager : MonoBehaviour
             {
                 Destroy(currentBike);
             }
-            currentBike = Instantiate(newBike.bikePrefab, new Vector3(0,0,0), Quaternion.identity);
+            currentBike = Instantiate(newBike.bikePrefab, newBike.spawnPositionOffset, Quaternion.Euler(newBike.spawnRotationOffset));
             currentBikeIndex = newBike.bikeIndex;
         }
         else

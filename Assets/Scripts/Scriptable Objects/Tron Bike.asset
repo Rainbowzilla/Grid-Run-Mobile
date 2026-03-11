@@ -15,3 +15,5 @@ MonoBehaviour:
   bikePrefab: {fileID: 2863450703525605696, guid: 061852c3abf61bc40b8afea257ced5e0, type: 3}
   bikeIndex: 1
   bikeName: LightCycle
+  spawnPositionOffset: {x: 0, y: -0.21, z: 0}
+  spawnRotationOffset: {x: 0, y: 0, z: 0}

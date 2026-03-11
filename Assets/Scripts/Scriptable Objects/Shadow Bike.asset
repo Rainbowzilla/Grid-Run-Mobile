@@ -15,3 +15,5 @@ MonoBehaviour:
   bikePrefab: {fileID: 6963889902434151737, guid: 37ce2e7a7cbb16347b176f07504b446f, type: 3}
   bikeIndex: 6
   bikeName: Shadow Bike
+  spawnPositionOffset: {x: 0, y: 0.7, z: 0}
+  spawnRotationOffset: {x: 0, y: 0, z: 0}

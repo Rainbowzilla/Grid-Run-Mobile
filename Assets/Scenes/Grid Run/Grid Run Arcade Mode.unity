@@ -7127,8 +7127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9449,7 +9449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &942412337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9926,6 +9926,8 @@ MonoBehaviour:
   speed: 30
   explosion: {fileID: 1637189573}
   Power_Ups: {fileID: 1599240185}
+  bikeGO: {fileID: 0}
+  newBikeParent: {fileID: 0}
 --- !u!95 &987833279
 Animator:
   serializedVersion: 7
@@ -10184,8 +10186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 250
-  m_fontSizeBase: 250
+  m_fontSize: 180
+  m_fontSizeBase: 180
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -15,3 +15,5 @@ MonoBehaviour:
   bikePrefab: {fileID: 3986484447150616733, guid: 4f919eb79356f99438ca90de88785f0a, type: 3}
   bikeIndex: 5
   bikeName: Akira
+  spawnPositionOffset: {x: 1.5, y: 0.7, z: 0}
+  spawnRotationOffset: {x: 0, y: 0, z: 0}
