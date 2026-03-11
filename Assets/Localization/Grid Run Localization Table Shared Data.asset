@@ -199,6 +199,10 @@ MonoBehaviour:
     m_Key: Tilt
     m_Metadata:
       m_Items: []
+  - m_Id: 4100746117476352
+    m_Key: Light Cycle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -155,7 +155,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 14778717593600
-    m_Localized: Akira Bike
+    m_Localized: Akira
     m_Metadata:
       m_Items: []
   - m_Id: 14806664241152
@@ -200,6 +200,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4000403375353856
     m_Localized: Tilt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4100746117476352
+    m_Localized: Light Cycle
     m_Metadata:
       m_Items: []
   references:
