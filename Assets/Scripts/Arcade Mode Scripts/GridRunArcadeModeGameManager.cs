@@ -61,6 +61,7 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
     public static bool isInLandscapeMode;
 
 
+
     void Start()
     {
         Cursor.visible = false;

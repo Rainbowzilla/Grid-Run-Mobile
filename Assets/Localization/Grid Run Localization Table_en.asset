@@ -194,6 +194,10 @@ MonoBehaviour:
     m_Localized: Restart
     m_Metadata:
       m_Items: []
+  - m_Id: 3983169693249536
+    m_Localized: Tap
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

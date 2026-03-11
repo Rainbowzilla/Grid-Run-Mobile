@@ -191,6 +191,10 @@ MonoBehaviour:
     m_Key: Restart
     m_Metadata:
       m_Items: []
+  - m_Id: 3983169693249536
+    m_Key: tap
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
