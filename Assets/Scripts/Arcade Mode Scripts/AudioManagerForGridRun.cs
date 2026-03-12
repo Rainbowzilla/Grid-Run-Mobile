@@ -14,12 +14,12 @@ public class AudioManagerForGridRun : MonoBehaviour
         // Get the AudioSource component
         audioSource = GetComponent<AudioSource>();
 
-        if (StaticVariableController.statusBool6 == true)
+        if (PlayerPrefs.GetInt("MusicToggle") == 1)
         {
             PlayMusic(normalPhaseMusic);
             AudioListener.pause = false;
         }
-        else if (StaticVariableController.statusBool6 == false)
+        else if (PlayerPrefs.GetInt("MusicToggle") == 0)
         {
             audioSource.Stop();
         }

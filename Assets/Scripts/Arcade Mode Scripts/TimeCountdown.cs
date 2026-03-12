@@ -9,6 +9,7 @@ public class TimeCountdown : MonoBehaviour
     [HideInInspector] public static float countTimer;
     float countTimerInt;
     [SerializeField] TextMeshProUGUI countDownText;
+    [SerializeField] TextMeshProUGUI countDownTextPortrait;
     public TextMeshProUGUI thresholdText;
     public AudioSource alarm;
     public GameObject TheRecognizer;
@@ -38,7 +39,9 @@ public class TimeCountdown : MonoBehaviour
             countTimer -= 1 * Time.deltaTime;
             countTimerInt = Mathf.RoundToInt(countTimer);
             countDownText.text = countTimerInt.ToString();
-        
+            countDownTextPortrait.text = countTimerInt.ToString();
+
+
             if (countTimerInt <= 0 && GridRunArcadeModeGameManager.static_score < GridRunArcadeModeGameManager.Minimum_Score_So_Unlock_Boss &&!isInBossPhase)
             {
                 Cursor.visible = true;

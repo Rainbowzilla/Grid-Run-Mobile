@@ -59,7 +59,7 @@ public class PowerUps : MonoBehaviour
     public ParticleSystem sparksLeft, sparksRight;
     public GameObject player;
     public Material bodyMaterial;
-    public Image fullAuto, slowMo, ghost, apRounds;
+    public Image fullAuto, slowMo, ghost, apRounds, fullAutoPortrait, slowMoPortrait, ghostPortrait, apRoundsPortrait;
     public AudioSource laserShot;
     public AudioSource laserShotHigherPitch;
     public AudioSource fullAutoPowerUpSound;
@@ -82,6 +82,10 @@ public class PowerUps : MonoBehaviour
         ghost.enabled = false;
         apRounds.enabled = false;
         isGhostActivated = false;
+        fullAutoPortrait.enabled = false;
+        slowMoPortrait.enabled = false;
+        ghostPortrait.enabled = false;
+        apRoundsPortrait.enabled = false;
         bodyMaterial.color = originalColor;
 
         apRoundTrail = new Gradient();
@@ -133,7 +137,17 @@ public class PowerUps : MonoBehaviour
 
             player.GetComponent<RunnerController>().speed = 75f;
 
-            slowMo.enabled = true;
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+            {
+                slowMo.enabled = true;
+                slowMoPortrait.enabled = false;
+            }
+            else if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+            {
+                slowMo.enabled = false;
+                slowMoPortrait.enabled = true;
+            }
+
 
             laserShot.pitch = 0.75f;
             laserShotHigherPitch.pitch = 0.75f;
@@ -181,12 +195,18 @@ public class PowerUps : MonoBehaviour
         {
             case FiringModes.Semi:
                 Semi();
-                fullAuto.enabled = false;
+                if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                    fullAuto.enabled = false;
+                else if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                    fullAutoPortrait.enabled = false;
                 break;
 
             case FiringModes.Auto:
                 Auto();
-                fullAuto.enabled = true;
+                if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                    fullAuto.enabled = true;
+                else if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                    fullAutoPortrait.enabled = true;
                 break;
         }
     }
@@ -319,7 +339,10 @@ public class PowerUps : MonoBehaviour
 
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); //This one line makes the player invincible by ignoring collision
 
-            ghost.enabled = true;
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                ghost.enabled = true;
+            if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                ghostPortrait.enabled = true;
 
             if (countGhostTimer <= 0)
             {
@@ -330,7 +353,12 @@ public class PowerUps : MonoBehaviour
             }
         }
         else
-            ghost.enabled = false;
+        {
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                ghost.enabled = false;
+            if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                ghostPortrait.enabled = false;
+        }
     }
 
     public void ActivateAPRounds()
@@ -341,7 +369,10 @@ public class PowerUps : MonoBehaviour
 
             bulletPrefabLeft.GetComponent<TrailRenderer>().colorGradient = apRoundTrail;
 
-            apRounds.enabled = true;
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                apRounds.enabled = true;
+            if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                apRoundsPortrait.enabled = true;
 
             if (countAPRoundsTimer <= 0)
             {
@@ -351,7 +382,12 @@ public class PowerUps : MonoBehaviour
             }
         }
         else
-            apRounds.enabled = false;
+        {
+            if (GridRunArcadeModeGameManager.isInLandscapeMode)
+                apRounds.enabled = false;
+            if (!GridRunArcadeModeGameManager.isInLandscapeMode)
+                apRoundsPortrait.enabled = false;
+        }
     }
 
     #endregion

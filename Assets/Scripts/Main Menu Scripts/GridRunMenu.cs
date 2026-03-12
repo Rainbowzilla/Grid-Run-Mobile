@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
-using UnityEngine.Windows;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using Input = UnityEngine.Input;
-using Unity.VisualScripting;
+using TMPro;
+
 
 public class GridRunMenu : MonoBehaviour
 {
@@ -22,6 +20,8 @@ public class GridRunMenu : MonoBehaviour
     public AudioSource pew;
     public CameraFilterPack_TV_ARCADE cameraFilterPack_TV_ARCADE;
     public AudioSource Something_You_Know_But_Dont;
+    public GameObject portraitLayout, landscapeLayout;
+    public GameObject languagesMenu;
 
 
     void Start()
@@ -38,12 +38,11 @@ public class GridRunMenu : MonoBehaviour
         arcadeScore.text = $"{PlayerPrefs.GetInt("HighScoreGridRunArcade", 0)}";
 
         menuID = 0;
-        ToggleIcon(true);
-        ToggleShakeCameraStaticVariable(false);
-        ToggleScoreStaticVariable(true);
+        ToggleIcon(PlayerPrefs.GetInt("CameraPerspective", 1) == 1);
+        ToggleShakeCameraStaticVariable(PlayerPrefs.GetInt("CameraShake", 0) == 1);
+        ToggleScoreStaticVariable(PlayerPrefs.GetInt("ShowScore", 1) == 1);
+        ToggleMusic();
         ToggleSmoothOrInstantCameraVariable(true);
-        ToggleCameraFilter(true);
-        ToggleMusic(true);
         smoothText.enabled = true;
         floor.GetComponent<Renderer>().sharedMaterial = purpleSynthwave;
         leftWall.GetComponent<Renderer>().sharedMaterial = purpleSynthwave;
@@ -132,6 +131,7 @@ public class GridRunMenu : MonoBehaviour
                 GoToAnotherMenu(0);
             }
         }
+        SwitchAspectRatio();
     }
 
     public void GoToAnotherMenu(int x)
@@ -139,6 +139,7 @@ public class GridRunMenu : MonoBehaviour
         if (x == 0)
         {
             mainMenu.SetActive(true);
+            languagesMenu.SetActive(true);
             endlessMenu.SetActive(false);
             arcadeMenu.SetActive(false);
             menuID = 0;
@@ -146,6 +147,7 @@ public class GridRunMenu : MonoBehaviour
         if (x == 1)
         {
             mainMenu.SetActive(false);
+            languagesMenu.SetActive(false);
             endlessMenu.SetActive(true);
             arcadeMenu.SetActive(false);
             menuID = 1;
@@ -153,12 +155,12 @@ public class GridRunMenu : MonoBehaviour
         if (x == 2)
         {
             mainMenu.SetActive(false);
+            languagesMenu.SetActive(false);
             endlessMenu.SetActive(false);
             arcadeMenu.SetActive(true);
             menuID = 2;
         }
     }
-
 
     public void ChangeEnviornment(int x)
     {
@@ -194,6 +196,20 @@ public class GridRunMenu : MonoBehaviour
         SceneManager.LoadScene("Grid Run");
         StaticVariableController.difficulty = x;
     }
+
+    public void SwitchAspectRatio()
+    {
+        if (Screen.width > Screen.height)
+        {
+            portraitLayout.SetActive(true);
+            landscapeLayout.SetActive(false);
+        }
+        else
+        {
+            portraitLayout.SetActive(false);
+            landscapeLayout.SetActive(true);
+        }
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -204,6 +220,22 @@ public class GridRunMenu : MonoBehaviour
         StaticVariableController.difficulty = input;
     }
 
+    public void LoadStore()
+    {
+        if (BikeSelectManager.Instance != null) 
+        {
+            BikeSelectManager.Instance.gameObject.SetActive(true);
+            Debug.Log("BikeSelectManager instance set to active");
+        }
+        SceneManager.LoadScene("Alex- Character Select UI");
+    }
+
+    public void TurnOnTutorialImageAfterEvent()
+    {
+        //Yes this is a real setting for one function
+        PlayerPrefs.SetInt("PhoneTutorial", 1);
+    }
+
     #region Monobehaviour API
     public void ToggleIcon(bool cameraStatus)
     {
@@ -212,13 +244,13 @@ public class GridRunMenu : MonoBehaviour
         {
             cameraIconDefault.transform.rotation = Quaternion.Euler(15, 0, 15);
             cameraIconDefault.transform.localPosition = new Vector3(cameraIconDefault.transform.localPosition.x, cameraIconDefault.transform.localPosition.y + 15, cameraIconDefault.transform.localPosition.z);
-            StaticVariableController.statusBool4 = true;
+            PlayerPrefs.SetInt("CameraPerspective", 1);
         }
         if (!cameraStatus)
         {
             cameraIconDefault.transform.rotation = Quaternion.Euler(15, 0, 0);
             cameraIconDefault.transform.localPosition = new Vector3(cameraIconDefault.transform.localPosition.x, cameraIconDefault.transform.localPosition.y - 15, cameraIconDefault.transform.localPosition.z);
-            StaticVariableController.statusBool4 = false;
+            PlayerPrefs.SetInt("CameraPerspective", 0);
         }
     }
 
@@ -227,18 +259,21 @@ public class GridRunMenu : MonoBehaviour
         pew.Play();
         if (showScore)
         {
-            StaticVariableController.statusBool1 = true;
+            PlayerPrefs.SetInt("ShowScore", 1);
         }
-        else StaticVariableController.statusBool1 = false;
+        else PlayerPrefs.SetInt("ShowScore", 0);
     }
     public void ToggleShakeCameraStaticVariable(bool currentCameraShakeState)
     {
         pew.Play();
         if (currentCameraShakeState)
-            StaticVariableController.statusBool2 = true;
-        else StaticVariableController.statusBool2 = false;
+        {
+            PlayerPrefs.SetInt("CameraShake", 1);
+        }
+        else PlayerPrefs.SetInt("CameraShake", 0);
     }
 
+    
     public void ToggleSmoothOrInstantCameraVariable(bool currentSoSCameraState)
     {
         pew.Play();
@@ -256,32 +291,32 @@ public class GridRunMenu : MonoBehaviour
         }
     }
     
+    /*
     public void ToggleCameraFilter(bool currentCameraFilterState)
     {
         pew.Play();
         if (currentCameraFilterState)
         {
-            StaticVariableController.statusBool5 = true;
+            PlayerPrefs.SetInt("", );
             cameraFilterPack_TV_ARCADE.enabled = true;
         }
         else
         {
-            StaticVariableController.statusBool5 = false;
+            PlayerPrefs.SetInt("", );
             cameraFilterPack_TV_ARCADE.enabled = false;
         }
     }
+    */
 
-    public void ToggleMusic(bool musicState)
+    public void ToggleMusic()
     {
-        if (musicState)
+        if (PlayerPrefs.GetInt("MusicToggle", 1) == 1)
         {
             Something_You_Know_But_Dont.Play();
-            StaticVariableController.statusBool6 = true;
         }
         else
         {
             Something_You_Know_But_Dont.Pause();
-            StaticVariableController.statusBool6 = false;
         }
     }
 

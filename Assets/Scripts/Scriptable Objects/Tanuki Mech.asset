@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a06d24dc5aab4c8165f2169b90c77, type: 3}
   m_Name: Tanuki Mech
   m_EditorClassIdentifier: Assembly-CSharp::BikeDataClass
-  bikePrefab: {fileID: 919132149155446097, guid: bf3fcaf30dc24aa4da68c158db57913f, type: 3}
+  bikePrefab: {fileID: 1460497891467261255, guid: 8ab2f88883fee7d42aedaabb92caf7a0, type: 3}
   bikeIndex: 2
   bikeName: Tanuki Mech
+  spawnPositionOffset: {x: 0, y: 0.7, z: 0}
+  spawnRotationOffset: {x: 0, y: 0, z: 0}

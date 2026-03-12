@@ -52,10 +52,14 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI countDownText;
     public PowerUps pu;
     public Image doublePoints;
+    public Image doublePointsPortrait;
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public GameObject mainCamera;
     public GameObject explosion;
+    public GameObject landscapeLayout, portraitLayout;
+    public static bool isInLandscapeMode;
+
 
 
     void Start()
@@ -83,19 +87,23 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
         UpdateHighScoreText();
         AudioListener.pause = false;
         doublePoints.enabled = false;
+        doublePointsPortrait.enabled = false;
         isGamePaused = false;
         pauseCanvas.SetActive(false);
         explosion.SetActive(false);
         gameOverCanvas.SetActive(false);
         isDoubleTime = false;
-        if (StaticVariableController.statusBool5 == true)
+        if (PlayerPrefs.GetInt("CRTFilter") == 1)
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = true;
-        else if (StaticVariableController.statusBool5 == false)
+        else if (PlayerPrefs.GetInt("CRTFilter") == 0)
             mainCamera.GetComponentInChildren<CameraFilterPack_TV_ARCADE>().enabled = false;
+
+        SwitchAspectRatio();
     }
 
     void Update()
     {
+        Debug.Log("Yo is the static bool status? " + isInLandscapeMode);
         //Debug.Log("Is Player Dead = " + RunnerController.isPlayerDead);
         if (GridController.didGridCollide == true)
         {
@@ -131,12 +139,39 @@ public class GridRunArcadeModeGameManager : MonoBehaviour
         if (isDoubleTime == true)
         {
             DoubleScore();
-            doublePoints.enabled = true;
+            if (isInLandscapeMode == true)
+            {
+                doublePoints.enabled = true;
+            }
+            else if (isInLandscapeMode == false)
+                doublePointsPortrait.enabled = true;
         }
         else if (isDoubleTime == false)
         {
             Points_Per_Hit = pointsPerHit;
-            doublePoints.enabled = false;
+            if (isInLandscapeMode == true)
+            {
+                doublePoints.enabled = false;
+            }
+            else if (isInLandscapeMode == false)
+                doublePointsPortrait.enabled = false;
+        }
+        SwitchAspectRatio();
+    }
+
+    public void SwitchAspectRatio()
+    {
+        if (Screen.height > Screen.width)
+        {
+            portraitLayout.SetActive(true);
+            landscapeLayout.SetActive(false);
+            isInLandscapeMode = false;
+        }
+        else
+        {
+            portraitLayout.SetActive(false);
+            landscapeLayout.SetActive(true);
+            isInLandscapeMode = true;
         }
     }
 

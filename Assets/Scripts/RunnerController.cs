@@ -9,10 +9,17 @@ public class RunnerController : MonoBehaviour
     public ParticleSystem explosion;
     private Rigidbody rb;
     public PowerUps Power_Ups;
-
+    public GameObject bikeGO;
+    public Transform newBikeParent;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (BikeSelectManager.Instance != null)
+        {
+            bikeGO.SetActive(false);
+            var inst = Instantiate(BikeSelectManager.Instance.bikes[BikeSelectManager.Instance.currentBikeIndex].bikePrefab);
+            inst.transform.SetParent(newBikeParent.transform, false);
+        }
     }
 
     void FixedUpdate()
