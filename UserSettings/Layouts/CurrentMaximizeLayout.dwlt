@@ -939,9 +939,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a2d40000
+      m_SelectedIDs: 68d50000
       m_LastClickedID: 0
-      m_ExpandedIDs: 74f4ffffc0f8ffffc2f8ffffd0faffff6ed70000
+      m_ExpandedIDs: 8ef5ffff18faffff1afaffff00cd0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b0230000
     m_LastClickedID: 9136
-    m_ExpandedIDs: 00000000bad50000bcd50000bed50000c0d50000c2d50000c4d50000c6d50000c8d50000cad50000ccd50000ced50000d0d50000d2d50000d4d50000d6d50000d8d50000dad50000dcd50000ded50000e0d50000e2d50000e4d50000e6d50000
+    m_ExpandedIDs: 0000000074d4000076d4000078d400007ad400007cd400007ed4000080d4000082d4000084d4000086d4000088d400008ad400008cd400008ed4000090d4000092d4000094d4000096d4000098d400009ad400009cd400009ed40000a0d40000a2d40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1085,9 +1085,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a2d40000
-    m_LastClickedID: 54434
-    m_ExpandedIDs: ffffffff00000000bad50000bcd50000bed50000c0d50000c2d50000c4d50000c6d50000c8d50000cad50000ced50000d0d50000d2d50000d4d50000d6d50000d8d50000dad50000dcd50000ded50000e0d50000e2d50000e4d50000e6d50000b4d60000d0dd0000
+    m_SelectedIDs: 68d50000
+    m_LastClickedID: 54632
+    m_ExpandedIDs: ffffffff0000000074d4000076d4000078d400007ad400007cd400007ed4000080d4000082d4000084d4000086d4000088d400008ad400008cd400008ed4000090d4000092d4000094d4000096d4000098d400009ad400009cd400009ed40000a0d40000a2d40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1113,8 +1113,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a2d40000
-    m_LastClickedInstanceID: 54434
+    m_SelectedInstanceIDs: 68d50000
+    m_LastClickedInstanceID: 54632
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
