@@ -261,7 +261,7 @@ public class RandomSpawner : MonoBehaviour
             AudioListener.pause = true;
         }
 
-        if (PlayerPrefs.GetInt("PhoneTutorial") == 1)
+        if (PlayerPrefs.GetInt("PhoneTutorial") == 1 && PlayerPrefs.GetInt("TiltMode") == 1)
         {
             phoneIcon.enabled = true;
         }
