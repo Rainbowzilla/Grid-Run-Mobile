@@ -166,6 +166,17 @@ public class SettingsMenu : MonoBehaviour
             //_cameraShakeToggle.enabled = false;
         }
 
+        if (PlayerPrefs.GetInt("TiltMode") == 1)
+        {
+            _tiltToggle.isOn = true;
+            _tiltToggle.enabled = true;
+        }
+        else
+        {
+            Debug.Log(" tilt check is false");
+            _tiltToggle.isOn = false;
+        }
+
         if (PlayerPrefs.GetInt("PhoneTutorial") == 1)
         {
             _tutorialToggle.isOn = true;

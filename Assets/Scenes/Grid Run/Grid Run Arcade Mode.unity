@@ -28653,7 +28653,7 @@ MonoBehaviour:
   tiltSpeed: 5
   maxXVelocity: 50000
   xVelocity: 0
-  isForMobile: 0
+  isForMobile: 1
   bikeParent: {fileID: 1973495758}
   bikeParent2: {fileID: 1973495758}
   tiltMultiplier: 1

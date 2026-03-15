@@ -163,26 +163,43 @@ public class BikeSelectManager : MonoBehaviour
         }
     }
 
+
     //FOR TESTING
+    public List<BikeDataClass> bikesToUnlockForTesting;
     void UnlockAllBikes()
     {
-        if (unlockedBikes == null || unlockedBikes.Count == 0)
+        if (bikesToUnlockForTesting == null || bikesToUnlockForTesting.Count == 0)
         {
-            Debug.LogWarning("unlockedBikes list is empty or null — nothing to unlock.");
+            Debug.LogWarning("No bikes assigned to bikesToUnlockForTesting → nothing unlocked.");
             return;
         }
 
-        // Set every bike to unlocked
-        for (int i = 0; i < unlockedBikes.Count; i++)
+        int successCount = 0;
+        int failCount = 0;
+
+        foreach (var bike in bikesToUnlockForTesting)
         {
-            unlockedBikes[i] = true;
+            if (bike == null)
+            {
+                Debug.LogWarning("Null bike found in bikesToUnlockForTesting");
+                continue;
+            }
+
+            if (bike.bikeIndex < 0 || bike.bikeIndex >= unlockedBikes.Count)
+            {
+                Debug.LogWarning($"Bike '{bike.bikeName}' has invalid index {bike.bikeIndex} (max is {unlockedBikes.Count-1}) → skipped");
+                failCount++;
+                continue;
+            }
+
+            // This is the important part: we reuse your existing logic
+            UnlockBike(bike);
+            successCount++;
         }
 
-        // Save once at the end (more efficient)
-        PlayerPrefs.SetString("UnlockedBikes", BoolsToString(unlockedBikes));
-        PlayerPrefs.Save();
+        PlayerPrefs.Save();  // extra safety (though UnlockBike already calls it)
 
-        Debug.Log($"All {unlockedBikes.Count} bikes have been unlocked!");
+        Debug.Log($"UnlockAllBikes finished: {successCount} bikes unlocked, {failCount} skipped/failed.");
     }
 
     List<bool> InitializeDefaults() // start with first char unlocked, only called when there's no save data
