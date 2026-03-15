@@ -23,6 +23,7 @@ TagManager:
   - Life
   - Ghost
   - AP Rounds
+  - SpawnParent
   layers:
   - Default
   - TransparentFX

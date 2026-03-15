@@ -11,6 +11,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle _cameraShakeToggle;
     [SerializeField] private Toggle _musicToggle;
     [SerializeField] private Toggle _tutorialToggle;
+    [SerializeField] private Toggle _tiltToggle;
     [Header("Misc assignments")]
     [SerializeField] private CameraFilterPack_TV_ARCADE _crtFilter;
     [SerializeField] private AudioSource Something_You_Know_But_Dont;
@@ -43,6 +44,9 @@ public class SettingsMenu : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("PhoneTutorial"))
             PlayerPrefs.SetInt("PhoneTutorial", 1);
+
+        if (!PlayerPrefs.HasKey("TiltMode"))
+            PlayerPrefs.SetInt("TiltMode", 1);
         SoManyIfStatements();
 
         _settingsMenuGO.SetActive(false);
@@ -93,6 +97,11 @@ public class SettingsMenu : MonoBehaviour
     public void onTutorialToggle(bool value)
     {
         PlayerPrefs.SetInt("PhoneTutorial", value ? 1 : 0);
+    }
+
+    public void onTiltModeToggle(bool value)
+    {
+        PlayerPrefs.SetInt("TiltMode", value ? 1 : 0);
     }
 
     void SoManyIfStatements()

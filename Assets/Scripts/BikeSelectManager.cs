@@ -11,6 +11,8 @@ public class BikeSelectManager : MonoBehaviour
 
     public int currentBikeIndex = 0;
     public GameObject currentBike;
+
+    public Transform spawnParent;
     private void Awake()
     {
 
@@ -22,6 +24,11 @@ public class BikeSelectManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        //FOR TESTING
+        UnlockAllBikes();
+
+        spawnParent = GameObject.FindGameObjectWithTag("SpawnParent").transform;
 
         if (!PlayerPrefs.HasKey("HasInitialized"))
         {
@@ -52,7 +59,18 @@ public class BikeSelectManager : MonoBehaviour
                 if(currentBike != null)
                 {
                     Destroy(currentBike);
-                    Instantiate(bikes[i].bikePrefab, bikes[i].spawnPositionOffset, Quaternion.Euler(bikes[i].spawnRotationOffset));
+                    //Instantiate(bikes[i].bikePrefab, bikes[i].spawnPositionOffset, Quaternion.Euler(bikes[i].spawnRotationOffset, spawnParent));
+                    
+                    spawnParent = GameObject.FindGameObjectWithTag("SpawnParent").transform;
+
+                    GameObject bikeInstance = Instantiate(
+                        bikes[i].bikePrefab,
+                        bikes[i].spawnPositionOffset,
+                        Quaternion.Euler(bikes[i].spawnRotationOffset),
+                        spawnParent
+                    );
+
+                    
                     Debug.Log("Current bike set to " + bikes[i].bikeName);
                 }
                 break;
@@ -118,7 +136,10 @@ public class BikeSelectManager : MonoBehaviour
             {
                 Destroy(currentBike);
             }
-            currentBike = Instantiate(newBike.bikePrefab, newBike.spawnPositionOffset, Quaternion.Euler(newBike.spawnRotationOffset));
+
+            spawnParent = GameObject.FindGameObjectWithTag("SpawnParent").transform;
+
+            currentBike = Instantiate(newBike.bikePrefab, newBike.spawnPositionOffset, Quaternion.Euler(newBike.spawnRotationOffset), spawnParent);
             currentBikeIndex = newBike.bikeIndex;
         }
         else
@@ -140,6 +161,28 @@ public class BikeSelectManager : MonoBehaviour
         {
             Debug.LogError("Bike index out of range: " + bikeToUnlock.bikeIndex);
         }
+    }
+
+    //FOR TESTING
+    void UnlockAllBikes()
+    {
+        if (unlockedBikes == null || unlockedBikes.Count == 0)
+        {
+            Debug.LogWarning("unlockedBikes list is empty or null — nothing to unlock.");
+            return;
+        }
+
+        // Set every bike to unlocked
+        for (int i = 0; i < unlockedBikes.Count; i++)
+        {
+            unlockedBikes[i] = true;
+        }
+
+        // Save once at the end (more efficient)
+        PlayerPrefs.SetString("UnlockedBikes", BoolsToString(unlockedBikes));
+        PlayerPrefs.Save();
+
+        Debug.Log($"All {unlockedBikes.Count} bikes have been unlocked!");
     }
 
     List<bool> InitializeDefaults() // start with first char unlocked, only called when there's no save data

@@ -8,8 +8,8 @@ public class MobileInputHandler : MonoBehaviour
 {
     public static MobileInputHandler Instance;
 
-    [Header("Mode Settings")]
-    [SerializeField] private bool startInTiltMode = false;  // Initial state – can be changed in Inspector
+    //[Header("Mode Settings")]
+    //[SerializeField] private bool startInTiltMode = false;  // Initial state – can be changed in Inspector
 
     [HideInInspector] public bool isTiltMode;
 
@@ -19,10 +19,11 @@ public class MobileInputHandler : MonoBehaviour
     [HideInInspector] public float xVelocity;
     public bool isForMobile;
     public Transform bikeParent;
+    public Transform bikeParent2;
     public float tiltMultiplier;
 
     [Header("UI - Tilt Mode Toggle")]
-    [SerializeField] private Toggle tiltModeToggle;         // ← Drag your UI Toggle here in Inspector
+    //[SerializeField] private Toggle tiltModeToggle;         // ← Drag your UI Toggle here in Inspector
 
     [Header("Touch/Drag Controls")]
     public float dragSensitivity = 2.0f;
@@ -44,23 +45,23 @@ public class MobileInputHandler : MonoBehaviour
         }
 
         // Set initial mode
-        isTiltMode = startInTiltMode;
+        //isTiltMode = startInTiltMode;
     }
 
     void Start()
     {
-        tiltMultiplier = PlayerPrefs.GetFloat("TiltSensitivity", 13f);
-        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", 0.35f);
-        // Sync toggle UI with starting mode
-        if(PlayerPrefs.GetInt("IsTiltMode") == 1)//if (tiltModeToggle != null)
+        if(PlayerPrefs.GetInt("TiltMode", 1) == 1)
         {
-            tiltModeToggle.isOn = isTiltMode;
-            tiltModeToggle.onValueChanged.AddListener(OnTiltModeToggleChanged);
+            isTiltMode = true;
         }
         else
         {
-            Debug.LogWarning("TiltModeToggle reference is missing in MobileInputHandler!", this);
+            isTiltMode = false;
         }
+
+        tiltMultiplier = PlayerPrefs.GetFloat("TiltSensitivity", 13f);
+        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", 0.35f);
+        // Sync toggle UI with starting mode
 
         // Enable gyroscope only if starting in tilt mode
         Input.gyro.enabled = isTiltMode;
@@ -155,20 +156,24 @@ public class MobileInputHandler : MonoBehaviour
         Quaternion current = bikeParent.localRotation;
         Quaternion target = Quaternion.Euler(targetZ, 90f, 0f);
         bikeParent.localRotation = Quaternion.Lerp(current, target, t);
+
+        Quaternion current2 = bikeParent2.localRotation;
+        Quaternion target2 = Quaternion.Euler(0f, 0f, -targetZ);
+        bikeParent2.localRotation = Quaternion.Lerp(current2, target2, t);
     }
 
     // Optional: public method to force mode change from other scripts
-    public void SetTiltMode(bool enableTilt)
-    {
-        if (tiltModeToggle != null)
-        {
-            tiltModeToggle.isOn = enableTilt;
-        }
-        else
-        {
-            isTiltMode = enableTilt;
-            Input.gyro.enabled = enableTilt;
-            xVelocity = 0f;
-        }
-    }
+    // public void SetTiltMode(bool enableTilt)
+    // {
+    //     if (tiltModeToggle != null)
+    //     {
+    //         tiltModeToggle.isOn = enableTilt;
+    //     }
+    //     else
+    //     {
+    //         isTiltMode = enableTilt;
+    //         Input.gyro.enabled = enableTilt;
+    //         xVelocity = 0f;
+    //     }
+    // }
 }
