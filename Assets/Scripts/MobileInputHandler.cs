@@ -69,7 +69,8 @@ public class MobileInputHandler : MonoBehaviour
         // Enable gyroscope only if starting in tilt mode
         Input.gyro.enabled = isTiltMode;
 
-        tiltMultiplier *= PlayerPrefs.GetFloat("Sensitivity", 1f);
+        dragSensitivity *= PlayerPrefs.GetFloat("Sensitivity", 1f);
+        tiltSpeed *= PlayerPrefs.GetFloat("Sensitivity", 1f);
     }
 
     void Update()

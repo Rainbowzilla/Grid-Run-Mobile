@@ -188,6 +188,7 @@
     <None Include="Assets/Import/Camera Filter/CameraFilterPack_TV_ARCADE.shader" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/Import/Materials/ground_with_rocks_03_1k/license.txt" />
+    <None Include="Assets/AddressableAssetsData/link.xml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
