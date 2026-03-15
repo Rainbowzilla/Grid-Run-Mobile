@@ -13,39 +13,44 @@ public class LanguageSelector : MonoBehaviour
 
     private void Awake()
     {
-        // Safety check
         if (toggleEnglish == null || toggleJapanese == null)
         {
             Debug.LogError("LanguageSelector: One or both toggles are not assigned!", this);
             return;
         }
 
-        // Make sure they are mutually exclusive from the start
         toggleEnglish.isOn = false;
         toggleJapanese.isOn = false;
 
-        // Add listeners
         toggleEnglish.onValueChanged.AddListener(OnEnglishToggled);
         toggleJapanese.onValueChanged.AddListener(OnJapaneseToggled);
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
-        // Only auto-set language the very first time the game is launched
+        // Wait for localization to initialize (important on scene reloads)
+        if (!LocalizationSettings.InitializationOperation.IsDone)
+            yield return LocalizationSettings.InitializationOperation;
+
+        // Only auto-set the very first launch
         if (PlayerPrefs.GetInt("HasAutoSetLanguage", 0) == 0)
         {
             AutoSetLanguage();
             PlayerPrefs.SetInt("HasAutoSetLanguage", 1);
+            PlayerPrefs.Save();
         }
 
-        // Load saved language and update UI
+        // Load saved and apply it
         int savedLocaleID = PlayerPrefs.GetInt("LocaleKey", 0);
-        LoadLanguageAndUpdateUI(savedLocaleID);
+        Debug.Log($"[LanguageSelector] Loaded saved LocaleKey = {savedLocaleID} | Current Selected = {(LocalizationSettings.SelectedLocale != null ? LocalizationSettings.SelectedLocale.Identifier.Code : "null")}");
+
+        yield return LoadLanguageAndUpdateUI(savedLocaleID);
+
+        Debug.Log($"[LanguageSelector] After apply → SelectedLocale = {(LocalizationSettings.SelectedLocale != null ? LocalizationSettings.SelectedLocale.Identifier.Code : "null")}");
     }
 
     private void OnDestroy()
     {
-        // Clean up listeners
         if (toggleEnglish != null)
             toggleEnglish.onValueChanged.RemoveListener(OnEnglishToggled);
         if (toggleJapanese != null)
@@ -53,31 +58,24 @@ public class LanguageSelector : MonoBehaviour
     }
 
     // ────────────────────────────────────────────────
-    //  Toggle Handlers (mutually exclusive behavior)
+    //  Toggle Handlers
     // ────────────────────────────────────────────────
     private void OnEnglishToggled(bool isOn)
     {
         if (isChangingLanguage) return;
+        if (!isOn) return; // ignore turning off
 
-        if (isOn)
-        {
-            // Turn Japanese off without triggering its event
-            toggleJapanese.SetIsOnWithoutNotify(false);
-            ChangeLanguage(0); // English = 0
-        }
-        // If turning English off → do nothing (Japanese should already be on or both off is invalid)
+        toggleJapanese.SetIsOnWithoutNotify(false);
+        ChangeLanguage(0);
     }
 
     private void OnJapaneseToggled(bool isOn)
     {
         if (isChangingLanguage) return;
+        if (!isOn) return;
 
-        if (isOn)
-        {
-            // Turn English off without triggering its event
-            toggleEnglish.SetIsOnWithoutNotify(false);
-            ChangeLanguage(1); // Japanese = 1
-        }
+        toggleEnglish.SetIsOnWithoutNotify(false);
+        ChangeLanguage(1);
     }
 
     // ────────────────────────────────────────────────
@@ -93,59 +91,62 @@ public class LanguageSelector : MonoBehaviour
     {
         isChangingLanguage = true;
 
-        // Wait for localization system to be ready
         if (!LocalizationSettings.InitializationOperation.IsDone)
             yield return LocalizationSettings.InitializationOperation;
 
-        // Change locale
         if (localeID >= 0 && localeID < LocalizationSettings.AvailableLocales.Locales.Count)
         {
-            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
+            var targetLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
+            LocalizationSettings.SelectedLocale = targetLocale;
             PlayerPrefs.SetInt("LocaleKey", localeID);
+            PlayerPrefs.Save();
+
+            Debug.Log($"[LanguageSelector] Changed to {targetLocale.Identifier.Code} ({targetLocale.name})");
         }
         else
         {
-            Debug.LogWarning($"Invalid locale ID: {localeID}");
+            Debug.LogWarning($"[LanguageSelector] Invalid locale ID: {localeID} — falling back to English");
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+            PlayerPrefs.SetInt("LocaleKey", 0);
+            PlayerPrefs.Save();
         }
 
         isChangingLanguage = false;
     }
 
-    // Load saved language and reflect it in the UI toggles
-    private void LoadLanguageAndUpdateUI(int localeID)
+    // Apply saved language + update UI toggles
+    private IEnumerator LoadLanguageAndUpdateUI(int localeID)
     {
-        // Prevent toggle callbacks during initialization
         isChangingLanguage = true;
+
+        // Validate & fallback
+        if (localeID < 0 || localeID >= LocalizationSettings.AvailableLocales.Locales.Count)
+        {
+            localeID = 0;
+            PlayerPrefs.SetInt("LocaleKey", 0);
+            PlayerPrefs.Save();
+        }
 
         toggleEnglish.SetIsOnWithoutNotify(localeID == 0);
         toggleJapanese.SetIsOnWithoutNotify(localeID == 1);
 
-        // If neither is selected (invalid state), default to English
-        if (localeID != 0 && localeID != 1)
-        {
-            toggleEnglish.SetIsOnWithoutNotify(true);
-            toggleJapanese.SetIsOnWithoutNotify(false);
-            ChangeLanguage(0);
-        }
+        // Actually apply the locale (this was missing before!)
+        ChangeLanguage(localeID);
+
+        // Give one frame for everything to settle (helps in some cases)
+        yield return null;
 
         isChangingLanguage = false;
     }
 
-    // Optional: First-time auto detection
     private void AutoSetLanguage()
     {
-        int autoID = 0; // default English
+        int autoID = 0; // English default
 
-        switch (Application.systemLanguage)
-        {
-            case SystemLanguage.Japanese:
-                autoID = 1;
-                break;
-            // You can keep other languages here if you want to support them later
-            // case SystemLanguage.French:    autoID = 2; break;
-            // case SystemLanguage.Spanish:   autoID = 3; break;
-        }
+        if (Application.systemLanguage == SystemLanguage.Japanese)
+            autoID = 1;
 
         PlayerPrefs.SetInt("LocaleKey", autoID);
+        PlayerPrefs.Save();
     }
 }

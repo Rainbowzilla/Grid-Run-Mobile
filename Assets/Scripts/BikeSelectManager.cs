@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
@@ -49,6 +50,8 @@ public class BikeSelectManager : MonoBehaviour
                     unlockedBikes.Add(false);
             }
         }
+
+        UnlockAllBikes();
         
         DontDestroyOnLoad(gameObject);
 
@@ -165,41 +168,27 @@ public class BikeSelectManager : MonoBehaviour
 
 
     //FOR TESTING
-    public List<BikeDataClass> bikesToUnlockForTesting;
+    public List<Button> buttonsToTrigger;   // drag your buttons here in Inspector
     void UnlockAllBikes()
     {
-        if (bikesToUnlockForTesting == null || bikesToUnlockForTesting.Count == 0)
+       if (buttonsToTrigger == null || buttonsToTrigger.Count == 0)
         {
-            Debug.LogWarning("No bikes assigned to bikesToUnlockForTesting → nothing unlocked.");
+            Debug.LogWarning("No buttons assigned to trigger!");
             return;
         }
 
-        int successCount = 0;
-        int failCount = 0;
-
-        foreach (var bike in bikesToUnlockForTesting)
+        foreach (var button in buttonsToTrigger)
         {
-            if (bike == null)
+            if (button != null)
             {
-                Debug.LogWarning("Null bike found in bikesToUnlockForTesting");
-                continue;
+                button.onClick.Invoke();           // ← this triggers the onClick event
+                Debug.Log($"Triggered onClick for button: {button.name}");
             }
-
-            if (bike.bikeIndex < 0 || bike.bikeIndex >= unlockedBikes.Count)
+            else
             {
-                Debug.LogWarning($"Bike '{bike.bikeName}' has invalid index {bike.bikeIndex} (max is {unlockedBikes.Count-1}) → skipped");
-                failCount++;
-                continue;
+                Debug.LogWarning("Null button in list — skipped");
             }
-
-            // This is the important part: we reuse your existing logic
-            UnlockBike(bike);
-            successCount++;
         }
-
-        PlayerPrefs.Save();  // extra safety (though UnlockBike already calls it)
-
-        Debug.Log($"UnlockAllBikes finished: {successCount} bikes unlocked, {failCount} skipped/failed.");
     }
 
     List<bool> InitializeDefaults() // start with first char unlocked, only called when there's no save data

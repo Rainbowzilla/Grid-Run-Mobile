@@ -60,11 +60,16 @@ public class MobileInputHandler : MonoBehaviour
         }
 
         tiltMultiplier = PlayerPrefs.GetFloat("TiltSensitivity", 13f);
-        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", 0.35f);
+
+
+        PlayerPrefs.SetFloat("DragSensitivity", 0.0001f);
+        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", 0.0001f);
         // Sync toggle UI with starting mode
 
         // Enable gyroscope only if starting in tilt mode
         Input.gyro.enabled = isTiltMode;
+
+        tiltMultiplier *= PlayerPrefs.GetFloat("Sensitivity", 1f);
     }
 
     void Update()
@@ -157,9 +162,13 @@ public class MobileInputHandler : MonoBehaviour
         Quaternion target = Quaternion.Euler(targetZ, 90f, 0f);
         bikeParent.localRotation = Quaternion.Lerp(current, target, t);
 
-        Quaternion current2 = bikeParent2.localRotation;
-        Quaternion target2 = Quaternion.Euler(0f, 0f, -targetZ);
-        bikeParent2.localRotation = Quaternion.Lerp(current2, target2, t);
+        if(bikeParent2 != null) //Arcade Mode Does not Have 2nd Bike Parent
+        { 
+            Quaternion current2 = bikeParent2.localRotation;
+            Quaternion target2 = Quaternion.Euler(0f, 0f, -targetZ);
+            bikeParent2.localRotation = Quaternion.Lerp(current2, target2, t);
+        }
+
     }
 
     // Optional: public method to force mode change from other scripts

@@ -12,6 +12,8 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle _musicToggle;
     [SerializeField] private Toggle _tutorialToggle;
     [SerializeField] private Toggle _tiltToggle;
+    [SerializeField] private Slider _sensitivitySlider;
+    
     [Header("Misc assignments")]
     [SerializeField] private CameraFilterPack_TV_ARCADE _crtFilter;
     [SerializeField] private AudioSource Something_You_Know_But_Dont;
@@ -47,10 +49,15 @@ public class SettingsMenu : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("TiltMode"))
             PlayerPrefs.SetInt("TiltMode", 1);
+
+        if (!PlayerPrefs.HasKey("Sensitivity"))
+            PlayerPrefs.SetFloat("Sensitivity", 1);
+
         SoManyIfStatements();
 
         _settingsMenuGO.SetActive(false);
         //Debug.Log("Is the camera 3rd person perspective on: " + PlayerPrefs.GetInt("CameraPerspective"));
+        _sensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged);
     }
 
     public void onCRTFilterToggle(bool value)
@@ -104,6 +111,11 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("TiltMode", value ? 1 : 0);
     }
 
+    public void OnSensitivityChanged(float value)
+    {
+        PlayerPrefs.SetFloat("Sensitivity", value);
+        PlayerPrefs.Save();
+    }
     void SoManyIfStatements()
     {
         if (PlayerPrefs.GetInt("CRTFilter") == 1)
@@ -176,6 +188,9 @@ public class SettingsMenu : MonoBehaviour
             Debug.Log(" tilt check is false");
             _tiltToggle.isOn = false;
         }
+
+        float savedSensitivity = PlayerPrefs.GetFloat("Sensitivity", 1f);   // 1f = default if not found
+        _sensitivitySlider.value = savedSensitivity;
 
         if (PlayerPrefs.GetInt("PhoneTutorial") == 1)
         {
